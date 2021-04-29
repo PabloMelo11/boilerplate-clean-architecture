@@ -1,6 +1,5 @@
 import { Either, left, right } from '@/core/logic/Either';
 
-import { ICreateUserDTO } from '@/dtos/accounts/ICreateUserDTO';
 import { IUsersRepository } from '@/infra/repositories/accounts/IUsersRepository';
 
 import { User } from '../../domain/user/user';
@@ -10,6 +9,16 @@ import { InvalidEmailError } from '../../domain/user/errors/InvalidEmailError';
 import { AccountAlreadyExistsError } from './errors/AccountAlreadyExists';
 
 type CreatedUserResponse = Either<InvalidEmailError, User>;
+
+type ICreateUserDTO = {
+  name: string;
+  password: string;
+  email: string;
+  driver_license: string;
+
+  id?: string;
+  avatar?: string;
+};
 
 class CreateUserUseCase {
   constructor(private usersRepository: IUsersRepository) {}
