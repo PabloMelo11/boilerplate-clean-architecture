@@ -34,7 +34,7 @@ class CreateUserController implements Controller {
           case AccountAlreadyExistsError:
             return conflict(error);
           default:
-            clientError(error);
+            return clientError(error);
         }
       } else {
         return created();
