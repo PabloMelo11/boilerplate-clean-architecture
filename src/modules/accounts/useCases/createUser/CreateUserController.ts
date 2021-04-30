@@ -4,8 +4,8 @@ import {
   HttpResponse,
   clientError,
   conflict,
-  created,
   serverError,
+  ok,
 } from '@/core/infra/HttpResponse';
 
 import { CreateUserUseCase } from './CreateUserUseCase';
@@ -37,7 +37,9 @@ class CreateUserController implements Controller {
             return clientError(error);
         }
       } else {
-        return created();
+        const user = result.value;
+
+        return ok(user);
       }
     } catch (err) {
       return serverError(err);
