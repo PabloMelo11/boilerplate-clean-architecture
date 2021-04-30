@@ -8,8 +8,6 @@ import {
   ok,
 } from '@/core/infra/HttpResponse';
 
-import { AccountDoesNotExists } from './errors/AccountDoesNotExists';
-
 import { ListUsersUseCase } from './ListUsersUseCase';
 
 type ListUsersControllerRequest = {
@@ -26,12 +24,7 @@ class ListUsersController implements Controller {
       if (result.isLeft()) {
         const error = result.value;
 
-        switch (error.constructor) {
-          case AccountDoesNotExists:
-            return conflict(error);
-          default:
-            return clientError(error);
-        }
+        return clientError(error);
       } else {
         const users = result.value;
 

@@ -3,18 +3,20 @@ import { User } from '@/modules/accounts/domain/user/user';
 import { IUsersRepository } from '../../IUsersRepository';
 
 class UsersRepositoryInMemory implements IUsersRepository {
-  constructor(public users: User[] = []) {}
+  private static users: User[] = [];
 
-  async create(user: User): Promise<void> {
-    this.users.push(user);
+  public async create(user: User): Promise<void> {
+    UsersRepositoryInMemory.users.push(user);
   }
 
-  async findByEmail(email: string): Promise<User> {
-    return this.users.find(user => user.email === email);
+  public async findByEmail(email: string): Promise<User> {
+    return UsersRepositoryInMemory.users.find(user => user.email === email);
   }
 
-  async listAllUsers(except_current_user: string): Promise<User[]> {
-    return this.users.filter(user => user.props.id !== except_current_user);
+  public async listAllUsers(except_current_user: string): Promise<User[]> {
+    return UsersRepositoryInMemory.users.filter(
+      user => user.id !== except_current_user,
+    );
   }
 }
 
