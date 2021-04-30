@@ -3,7 +3,7 @@ import { UsersRepositoryInMemory } from '@/infra/repositories/accounts/implement
 import { CreateUserUseCase } from '@/modules/accounts/useCases/createUser/CreateUserUseCase';
 import { CreateUserController } from '@/modules/accounts/useCases/createUser/CreateUserController';
 
-function makeCreateUserController(): Controller {
+function makeCreateUserControllerFactory(): Controller {
   const usersRepository = new UsersRepositoryInMemory();
   const createUserUseCase = new CreateUserUseCase(usersRepository);
   const createUserController = new CreateUserController(createUserUseCase);
@@ -11,4 +11,4 @@ function makeCreateUserController(): Controller {
   return createUserController;
 }
 
-export { makeCreateUserController };
+export { makeCreateUserControllerFactory };

@@ -12,6 +12,10 @@ class UsersRepositoryInMemory implements IUsersRepository {
   async findByEmail(email: string): Promise<User> {
     return this.users.find(user => user.email === email);
   }
+
+  async listAllUsers(except_current_user: string): Promise<User[]> {
+    return this.users.filter(user => user.props.id !== except_current_user);
+  }
 }
 
 export { UsersRepositoryInMemory };

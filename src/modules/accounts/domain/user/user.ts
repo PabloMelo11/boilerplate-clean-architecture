@@ -9,6 +9,7 @@ interface IUserProps {
   email: string;
   driver_license: string;
 
+  id?: string;
   avatar?: string;
 }
 

@@ -1,10 +1,13 @@
 import express from 'express';
 
 import { adaptRoute } from '../adapters/ExpressRouter';
-import { makeCreateUserController } from '../factories/controllers/accounts/createUser/CreateUserControllerFactory';
+
+import { makeCreateUserControllerFactory } from '../factories/controllers/accounts/createUser/CreateUserControllerFactory';
+import { makeListUsersControllerFactory } from '../factories/controllers/accounts/listUsers/ListUsersControllerFactory';
 
 const usersRouter = express();
 
-usersRouter.post('/', adaptRoute(makeCreateUserController()));
+usersRouter.get('/', adaptRoute(makeListUsersControllerFactory()));
+usersRouter.post('/', adaptRoute(makeCreateUserControllerFactory()));
 
 export { usersRouter };
