@@ -1,6 +1,7 @@
 import { Either, left, right } from '@/core/logic/Either';
 
 import { IUsersRepository } from '@/infra/repositories/accounts/IUsersRepository';
+import { IHashProvider } from '@/infra/providers/HashProvider/IHashProvider';
 
 import { User } from '../../domain/user/user';
 import { Email } from '../../domain/user/email';
@@ -26,7 +27,10 @@ type ICreateUserDTO = {
 };
 
 class CreateUserUseCase {
-  constructor(private usersRepository: IUsersRepository) {}
+  constructor(
+    private usersRepository: IUsersRepository,
+    private hashProvider: IHashProvider,
+  ) {}
 
   async execute(data: ICreateUserDTO): Promise<CreatedUserResponse> {
     const emailOrError = Email.create(data.email);
@@ -56,7 +60,17 @@ class CreateUserUseCase {
       return left(new AccountAlreadyExistsError(user.email));
     }
 
-    await this.usersRepository.create(user);
+    const passwordHash = await this.hashProvider.generateHash(user.password);
+
+    await this.usersRepository.create({
+      name: user.name,
+      email: user.email,
+      password: passwordHash,
+      driver_license: user.driver_license,
+      avatar: user.avatar,
+      id: user.id,
+      props: user.props,
+    });
 
     return right(user);
   }
