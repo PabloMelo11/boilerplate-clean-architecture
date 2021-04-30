@@ -2,7 +2,7 @@ import { Either, left, right } from '@/core/logic/Either';
 
 import { InvalidEmailError } from './errors/InvalidEmailError';
 
-export class Email {
+class Email {
   private readonly email: string;
 
   get value(): string {
@@ -41,3 +41,5 @@ export class Email {
     return right(new Email(formattedEmail));
   }
 }
+
+export { Email };

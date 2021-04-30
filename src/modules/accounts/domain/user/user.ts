@@ -8,7 +8,7 @@ interface IUserProps {
   password: string;
   email: string;
   driver_license: string;
-  avatar: string;
+  avatar?: string;
 }
 
 class User extends Entity<IUserProps> {
