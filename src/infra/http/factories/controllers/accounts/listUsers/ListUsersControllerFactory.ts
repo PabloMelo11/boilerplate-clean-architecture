@@ -1,6 +1,6 @@
 import { Controller } from '@/core/infra/Controller';
 
-import { UsersRepositoryInMemory } from '@/infra/repositories/accounts/implementations/inMemory/UsersRepository';
+import { UsersRepositoryInMemory } from '@/infra/repositories/accounts/inMemory/UsersRepository';
 import { ListUsersUseCase } from '@/modules/accounts/useCases/listUsers/ListUsersUseCase';
 import { ListUsersController } from '@/modules/accounts/useCases/listUsers/ListUsersController';
 

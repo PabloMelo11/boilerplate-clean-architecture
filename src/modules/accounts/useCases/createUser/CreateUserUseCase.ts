@@ -1,6 +1,6 @@
 import { Either, left, right } from '@/core/logic/Either';
 
-import { IUsersRepository } from '@/infra/repositories/accounts/IUsersRepository';
+import { IUsersRepository } from '@/modules/accounts/repositories/IUsersRepository';
 import { IHashProvider } from '@/infra/providers/HashProvider/IHashProvider';
 
 import { User } from '../../domain/user/user';

@@ -1,6 +1,6 @@
 import { User } from '@/modules/accounts/domain/user/user';
 
-import { IUsersRepository } from '../../IUsersRepository';
+import { IUsersRepository } from '@/modules/accounts/repositories/IUsersRepository';
 
 class UsersRepositoryInMemory implements IUsersRepository {
   private static users: User[] = [];
