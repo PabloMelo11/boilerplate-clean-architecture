@@ -10,7 +10,9 @@ import { AccountAlreadyExistsError } from '@/modules/accounts/useCases/errors/Ac
 import { IUserPropsDTO } from '@/entities/user/dtos/IUserPropsDTO';
 import { ICreatedUserResponseDTO } from './dtos/ICreatedUserResponseDTO';
 
-class CreateUserUseCase {
+import { ICreateUserUseCase } from '@/modules/accounts/useCases/createUser/ICreateUserUseCase';
+
+class CreateUserUseCase implements ICreateUserUseCase {
   constructor(
     private usersRepository: IUsersRepository,
     private hashProvider: IHashProvider,

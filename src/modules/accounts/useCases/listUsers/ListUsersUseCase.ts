@@ -5,7 +5,9 @@ import { IUsersRepository } from '@/modules/accounts/repositories/IUsersReposito
 import { IListAllUsersResponseDTO } from '@/modules/accounts/useCases/listUsers/dtos/IListUsersResponseDTO';
 import { IListUsersRequestDTO } from '@/modules/accounts/useCases/listUsers/dtos/IListUsersRequestDTO';
 
-class ListUsersUseCase {
+import { IListUsersUseCase } from '@/modules/accounts/useCases/listUsers/IListUsersUseCase';
+
+class ListUsersUseCase implements IListUsersUseCase {
   constructor(private usersRepository: IUsersRepository) {}
 
   async execute({

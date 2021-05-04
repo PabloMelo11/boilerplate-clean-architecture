@@ -7,13 +7,13 @@ import {
   ok,
 } from '@/adapters/presentation/protocols/HttpResponse';
 
-import { ListUsersUseCase } from '@/modules/accounts/useCases/listUsers/ListUsersUseCase';
+import { IListUsersUseCase } from '@/modules/accounts/useCases/listUsers/IListUsersUseCase';
 import { UserViewModel } from '@/adapters/presentation/controllers/accounts/views/UserViewModel';
 
 import { IListUsersControllerDTO } from '@/modules/accounts/useCases/listUsers/dtos/IListUsersControllerDTO';
 
 class ListUsersController implements Controller {
-  constructor(private readonly listUsersUseCase: ListUsersUseCase) {}
+  constructor(private readonly listUsersUseCase: IListUsersUseCase) {}
 
   async handle(
     request: IListUsersControllerDTO,
