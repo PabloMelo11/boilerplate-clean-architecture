@@ -2,6 +2,7 @@ import { Entity } from '@/shared/domain/Entity';
 import { right, left } from '@/shared/logic/Either';
 
 import { UserTokenPropsDTO } from '@/entities/userTokens/dtos/UserTokenPropsDTO';
+import { UserTokenResponseDTO } from '@/entities/userTokens/dtos/UserTokenResponseDTO';
 
 import { Type } from '@/entities/userTokens/type';
 import { ExpiresDate } from '@/entities/userTokens/expiresDate';
@@ -27,7 +28,7 @@ class UserTokens extends Entity<UserTokenPropsDTO> {
     super(props, id);
   }
 
-  static create(props: UserTokenPropsDTO, id?: string): any {
+  static create(props: UserTokenPropsDTO, id?: string): UserTokenResponseDTO {
     const typeOrError = Type.create(props.type);
     const expiresDateOrError = ExpiresDate.create(props.expires_date);
 
