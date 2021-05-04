@@ -49,7 +49,7 @@ class UserTokens extends Entity<UserTokenPropsDTO> {
       expires_date: expires_date.value,
     };
 
-    const userToken = new UserTokens(userTokenProps);
+    const userToken = new UserTokens(userTokenProps, id);
 
     return right(userToken);
   }
