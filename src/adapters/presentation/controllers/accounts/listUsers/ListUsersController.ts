@@ -10,7 +10,7 @@ import {
 import { IListUsersUseCase } from '@/modules/accounts/useCases/listUsers/IListUsersUseCase';
 import { UserViewModel } from '@/adapters/presentation/controllers/accounts/views/UserViewModel';
 
-import { IListUsersControllerDTO } from '@/modules/accounts/useCases/listUsers/dtos/IListUsersControllerDTO';
+import { IListUsersControllerDTO } from '@/adapters/presentation/controllers/accounts/listUsers/dtos/IListUsersControllerDTO';
 
 class ListUsersController implements Controller {
   constructor(private readonly listUsersUseCase: IListUsersUseCase) {}

@@ -10,7 +10,7 @@ import {
 import { ICreateUserUseCase } from '@/modules/accounts/useCases/createUser/ICreateUserUseCase';
 import { UserViewModel } from '@/adapters/presentation/controllers/accounts/views/UserViewModel';
 
-import { ICreateUserControllerDTO } from '@/modules/accounts/useCases/createUser/dtos/ICreateUserControllerDTO';
+import { ICreateUserControllerDTO } from '@/adapters/presentation/controllers/accounts/createUser/dtos/ICreateUserControllerDTO';
 
 class CreateUserController implements Controller {
   constructor(private readonly createUserUseCase: ICreateUserUseCase) {}
