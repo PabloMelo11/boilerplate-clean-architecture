@@ -14,11 +14,7 @@ class Type {
   }
 
   static validate(type: string): boolean {
-    if (
-      !type ||
-      type.trim() !== 'refresh_token' ||
-      type.trim() !== 'forgot_password'
-    ) {
+    if (!type || (type !== 'refresh_token' && type !== 'forgot_password')) {
       return false;
     }
 
