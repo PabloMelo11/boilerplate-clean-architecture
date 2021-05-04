@@ -1,11 +1,11 @@
-import { Controller } from '@/shared/infra/Controller';
+import { Controller } from '@/adapters/presentation/protocols/Controller';
 
 import {
   HttpResponse,
   clientError,
   serverError,
   ok,
-} from '@/shared/infra/HttpResponse';
+} from '@/adapters/presentation/protocols/HttpResponse';
 
 import { ListUsersUseCase } from '@/modules/accounts/useCases/listUsers/ListUsersUseCase';
 

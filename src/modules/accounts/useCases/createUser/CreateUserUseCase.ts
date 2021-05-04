@@ -5,7 +5,7 @@ import { User } from '@/entities/user/user';
 import { IUsersRepository } from '@/modules/accounts/repositories/IUsersRepository';
 import { IHashProvider } from '@/infra/providers/HashProvider/IHashProvider';
 
-import { AccountAlreadyExistsError } from './errors/AccountAlreadyExists';
+import { AccountAlreadyExistsError } from '@/modules/accounts/useCases/errors/AccountAlreadyExists';
 
 import { IUserPropsDTO } from '@/entities/user/dtos/IUserPropsDTO';
 import { ICreatedUserResponseDTO } from './dtos/ICreatedUserResponseDTO';

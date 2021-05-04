@@ -71,7 +71,7 @@ export function tooMany(error: Error): HttpResponse {
   };
 }
 
-export function serverError(error: Error) {
+export function serverError(error: Error): HttpResponse {
   console.log(error);
 
   return {

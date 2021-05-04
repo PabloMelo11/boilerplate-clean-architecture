@@ -1,14 +1,14 @@
-import { Controller } from '@/shared/infra/Controller';
+import { Controller } from '@/adapters/presentation/protocols/Controller';
 
 import {
   HttpResponse,
   clientError,
   serverError,
   ok,
-} from '@/shared/infra/HttpResponse';
+} from '@/adapters/presentation/protocols/HttpResponse';
 
 import { CreateUserUseCase } from '@/modules/accounts/useCases/createUser/CreateUserUseCase';
-import { UserViewModel } from '@/adapters/presentation/controllers/views/UserViewModel';
+import { UserViewModel } from '@/adapters/presentation/controllers/accounts/views/UserViewModel';
 
 import { ICreateUserControllerDTO } from '@/modules/accounts/useCases/createUser/dtos/ICreateUserControllerDTO';
 
