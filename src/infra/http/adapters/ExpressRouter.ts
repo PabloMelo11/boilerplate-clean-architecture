@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 
-import { Controller } from '@/core/infra/Controller';
+import { Controller } from '@/shared/infra/Controller';
 
 export const adaptRoute = (controller: Controller) => {
   return async (request: Request, response: Response) => {

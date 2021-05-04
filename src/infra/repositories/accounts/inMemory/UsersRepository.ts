@@ -1,22 +1,24 @@
-import { User } from '@/modules/accounts/domain/user/user';
+import { IUserPropsDTO } from '@/entities/user/dtos/IUserPropsDTO';
+
+import { IUUIDProvider } from '@/infra/providers/UUIDProvider/IUUIDProvider';
 
 import { IUsersRepository } from '@/modules/accounts/repositories/IUsersRepository';
 
 class UsersRepositoryInMemory implements IUsersRepository {
-  private static users: User[] = [];
+  private static users: IUserPropsDTO[] = [];
 
-  public async create(user: User): Promise<void> {
-    UsersRepositoryInMemory.users.push(user);
+  public async create(data: IUserPropsDTO): Promise<void> {
+    UsersRepositoryInMemory.users.push(data);
   }
 
-  public async findByEmail(email: string): Promise<User> {
+  public async findByEmail(email: string): Promise<IUserPropsDTO> {
     return UsersRepositoryInMemory.users.find(user => user.email === email);
   }
 
-  public async listAllUsers(except_current_user: string): Promise<User[]> {
-    return UsersRepositoryInMemory.users.filter(
-      user => user.id !== except_current_user,
-    );
+  public async listAllUsers(
+    except_current_user: string,
+  ): Promise<IUserPropsDTO[]> {
+    return UsersRepositoryInMemory.users;
   }
 }
 

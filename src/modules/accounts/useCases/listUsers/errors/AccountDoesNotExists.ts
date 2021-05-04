@@ -1,4 +1,4 @@
-import { UseCaseError } from '@/core/domain/errors/UseCaseError';
+import { UseCaseError } from '@/shared/domain/errors/UseCaseError';
 
 export class AccountDoesNotExists extends Error implements UseCaseError {
   constructor(id: string) {

@@ -1,6 +1,6 @@
-export type HttpResponse = {
+export type HttpResponse<T = any> = {
   statusCode: number;
-  body: any;
+  body: T;
 };
 
 export function ok<T>(dto?: T): HttpResponse {

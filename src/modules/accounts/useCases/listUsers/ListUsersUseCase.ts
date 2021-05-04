@@ -1,21 +1,16 @@
-import { Either, right } from '@/core/logic/Either';
+import { right } from '@/shared/logic/Either';
 
 import { IUsersRepository } from '@/modules/accounts/repositories/IUsersRepository';
 
-import { User } from '@/modules/accounts/domain/user/user';
-
-type IListAllUsers = Either<Error, User[]>;
-
-type IRequestDTO = {
-  except_current_user_id: string;
-};
+import { IListAllUsersResponseDTO } from '@/modules/accounts/useCases/listUsers/dtos/IListUsersResponseDTO';
+import { IListUsersRequestDTO } from '@/modules/accounts/useCases/listUsers/dtos/IListUsersRequestDTO';
 
 class ListUsersUseCase {
   constructor(private usersRepository: IUsersRepository) {}
 
   async execute({
     except_current_user_id,
-  }: IRequestDTO): Promise<IListAllUsers> {
+  }: IListUsersRequestDTO): Promise<IListAllUsersResponseDTO> {
     const findUsers = await this.usersRepository.listAllUsers(
       except_current_user_id,
     );

@@ -1,4 +1,4 @@
-import { Either, left, right } from '@/core/logic/Either';
+import { Either, left, right } from '@/shared/logic/Either';
 
 import { InvalidPasswordLengthError } from './errors/InvalidPasswordLength';
 
@@ -7,6 +7,7 @@ class Password {
 
   constructor(password: string) {
     this.password = password;
+    Object.freeze(this);
   }
 
   get value(): string {

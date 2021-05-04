@@ -1,35 +1,30 @@
-import { Controller } from '@/core/infra/Controller';
+import { Controller } from '@/shared/infra/Controller';
 
 import {
   HttpResponse,
   clientError,
-  conflict,
   serverError,
   ok,
-} from '@/core/infra/HttpResponse';
+} from '@/shared/infra/HttpResponse';
 
-import { ListUsersUseCase } from './ListUsersUseCase';
+import { ListUsersUseCase } from '@/modules/accounts/useCases/listUsers/ListUsersUseCase';
 
-type ListUsersControllerRequest = {
-  except_current_user_id: string;
-};
+import { IListUsersControllerDTO } from '@/modules/accounts/useCases/listUsers/dtos/IListUsersControllerDTO';
 
 class ListUsersController implements Controller {
   constructor(private readonly listUsersUseCase: ListUsersUseCase) {}
 
-  async handle(request: ListUsersControllerRequest): Promise<HttpResponse> {
+  async handle(request: IListUsersControllerDTO): Promise<HttpResponse> {
     try {
       const result = await this.listUsersUseCase.execute(request);
 
       if (result.isLeft()) {
-        const error = result.value;
-
-        return clientError(error);
-      } else {
-        const users = result.value;
-
-        return ok(users);
+        return clientError(result.value);
       }
+
+      const users = result.value;
+
+      return ok(users);
     } catch (err) {
       return serverError(err);
     }

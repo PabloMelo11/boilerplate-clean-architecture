@@ -1,16 +1,17 @@
-import { Either, left, right } from '@/core/logic/Either';
+import { Either, left, right } from '@/shared/logic/Either';
 
 import { InvalidEmailError } from './errors/InvalidEmailError';
 
 class Email {
   private readonly email: string;
 
-  get value(): string {
-    return this.email;
-  }
-
   private constructor(email: string) {
     this.email = email;
+    Object.freeze(this);
+  }
+
+  get value(): string {
+    return this.email;
   }
 
   static validate(email: string): boolean {

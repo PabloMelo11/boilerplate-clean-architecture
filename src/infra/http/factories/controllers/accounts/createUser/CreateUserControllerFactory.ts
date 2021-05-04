@@ -1,8 +1,8 @@
-import { Controller } from '@/core/infra/Controller';
+import { Controller } from '@/shared/infra/Controller';
 import { UsersRepositoryInMemory } from '@/infra/repositories/accounts/inMemory/UsersRepository';
 import { HashProviderBCrypt } from '@/infra/providers/HashProvider/implementations/bcrypt/HashProvider';
 import { CreateUserUseCase } from '@/modules/accounts/useCases/createUser/CreateUserUseCase';
-import { CreateUserController } from '@/modules/accounts/useCases/createUser/CreateUserController';
+import { CreateUserController } from '@/adapters/presentation/controllers/createUser/CreateUserController';
 
 function makeCreateUserControllerFactory(): Controller {
   const usersRepository = new UsersRepositoryInMemory();
