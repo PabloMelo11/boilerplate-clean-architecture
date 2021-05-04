@@ -8,7 +8,7 @@ import { IHashProvider } from '@/infra/providers/HashProvider/IHashProvider';
 import { AccountAlreadyExistsError } from '@/modules/accounts/useCases/errors/AccountAlreadyExists';
 
 import { IUserPropsDTO } from '@/entities/user/dtos/IUserPropsDTO';
-import { ICreatedUserResponseDTO } from './dtos/ICreatedUserResponseDTO';
+import { ICreatedUserResponseDTO } from '@/modules/accounts/useCases/createUser/dtos/ICreatedUserResponseDTO';
 
 import { ICreateUserUseCase } from '@/modules/accounts/useCases/createUser/ICreateUserUseCase';
 
