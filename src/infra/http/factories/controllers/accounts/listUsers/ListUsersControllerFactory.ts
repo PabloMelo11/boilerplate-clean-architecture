@@ -1,8 +1,8 @@
-import { Controller } from '@/shared/infra/Controller';
+import { Controller } from '@/adapters/presentation/protocols/Controller';
 
 import { UsersRepositoryInMemory } from '@/infra/repositories/accounts/inMemory/UsersRepository';
 import { ListUsersUseCase } from '@/modules/accounts/useCases/listUsers/ListUsersUseCase';
-import { ListUsersController } from '@/modules/accounts/useCases/listUsers/ListUsersController';
+import { ListUsersController } from '@/adapters/presentation/controllers/accounts/listUsers/ListUsersController';
 
 function makeListUsersControllerFactory(): Controller {
   const usersRepository = new UsersRepositoryInMemory();

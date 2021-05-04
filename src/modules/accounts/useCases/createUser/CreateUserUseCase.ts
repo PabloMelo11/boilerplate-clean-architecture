@@ -37,6 +37,7 @@ class CreateUserUseCase {
 
     await this.usersRepository.create({
       ...user.props,
+      ...user,
       email: user.email,
       password: passwordHash,
     });

@@ -8,13 +8,16 @@ import {
 } from '@/adapters/presentation/protocols/HttpResponse';
 
 import { ListUsersUseCase } from '@/modules/accounts/useCases/listUsers/ListUsersUseCase';
+import { UserViewModel } from '@/adapters/presentation/controllers/accounts/views/UserViewModel';
 
 import { IListUsersControllerDTO } from '@/modules/accounts/useCases/listUsers/dtos/IListUsersControllerDTO';
 
 class ListUsersController implements Controller {
   constructor(private readonly listUsersUseCase: ListUsersUseCase) {}
 
-  async handle(request: IListUsersControllerDTO): Promise<HttpResponse> {
+  async handle(
+    request: IListUsersControllerDTO,
+  ): Promise<HttpResponse<UserViewModel[]>> {
     try {
       const result = await this.listUsersUseCase.execute(request);
 
@@ -24,7 +27,9 @@ class ListUsersController implements Controller {
 
       const users = result.value;
 
-      return ok(users);
+      const usersView = UserViewModel.mapCollection(users);
+
+      return ok(usersView);
     } catch (err) {
       return serverError(err);
     }
