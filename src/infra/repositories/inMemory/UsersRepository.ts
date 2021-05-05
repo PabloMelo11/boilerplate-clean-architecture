@@ -18,6 +18,10 @@ class UsersRepositoryInMemory implements IUsersRepository {
       user => user.id !== except_current_user_id,
     );
   }
+
+  public async findById(user_id: string): Promise<User> {
+    return UsersRepositoryInMemory.users.find(user => user.id === user_id);
+  }
 }
 
 export { UsersRepositoryInMemory };
