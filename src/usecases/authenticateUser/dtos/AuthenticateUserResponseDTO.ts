@@ -2,7 +2,7 @@ import { Either } from '@/shared/logic/Either';
 
 import { InvalidDateError } from '@/entities/userTokens/errors/InvalidDateError';
 import { InvalidTypeError } from '@/entities/userTokens/errors/InvalidTypeError';
-import { InvalidEmailOrPasswordError } from '@/usecases/_helpers_/errors/InvalidEmailOrPasswordError';
+import { InvalidEmailOrPassword } from '@/usecases/_helpers_/errors/InvalidEmailOrPassword';
 
 type ResponseDTO = {
   user: {
@@ -14,7 +14,7 @@ type ResponseDTO = {
 };
 
 type AuthenticateUserResponseDTO = Either<
-  InvalidDateError | InvalidTypeError | InvalidEmailOrPasswordError,
+  InvalidDateError | InvalidTypeError | InvalidEmailOrPassword,
   ResponseDTO
 >;
 

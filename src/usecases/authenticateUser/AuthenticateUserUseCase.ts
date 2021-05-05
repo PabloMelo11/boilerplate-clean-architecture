@@ -20,7 +20,7 @@ import {
   ResponseDTO,
 } from '@/usecases/authenticateUser/dtos/AuthenticateUserResponseDTO';
 
-import { InvalidEmailOrPasswordError } from '@/usecases/_helpers_/errors/InvalidEmailOrPasswordError';
+import { InvalidEmailOrPassword } from '@/usecases/_helpers_/errors/InvalidEmailOrPassword';
 import { UserTokens } from '@/entities/userTokens/userTokens';
 
 class AuthenticateUserUseCase implements IAuthenticateUserUseCase {
@@ -61,7 +61,7 @@ class AuthenticateUserUseCase implements IAuthenticateUserUseCase {
     const user = await this.usersRepository.findByEmail(_email.value);
 
     if (!user) {
-      return left(new InvalidEmailOrPasswordError());
+      return left(new InvalidEmailOrPassword());
     }
 
     const passwordMatch = await this.hashProvider.compareHash(
@@ -70,7 +70,7 @@ class AuthenticateUserUseCase implements IAuthenticateUserUseCase {
     );
 
     if (!passwordMatch) {
-      return left(new InvalidEmailOrPasswordError());
+      return left(new InvalidEmailOrPassword());
     }
 
     const token = this.tokenProvider.generateToken({
