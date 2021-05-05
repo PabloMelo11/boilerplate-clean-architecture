@@ -44,9 +44,3 @@ export class EnsureAuthenticatedMiddleware implements Middleware {
     }
   }
 }
-
-export namespace AuthMiddleware {
-  export type Request = {
-    accessToken?: string;
-  };
-}
