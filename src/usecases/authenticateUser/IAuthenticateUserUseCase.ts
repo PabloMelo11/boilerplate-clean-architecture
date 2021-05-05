@@ -2,7 +2,7 @@ import { AuthenticateUserRequestDTO } from '@/usecases/authenticateUser/dtos/Aut
 import { AuthenticateUserResponseDTO } from '@/usecases/authenticateUser/dtos/AuthenticateUserResponseDTO';
 
 interface IAuthenticateUserUseCase {
-  execute(
+  authenticate(
     data: AuthenticateUserRequestDTO,
   ): Promise<AuthenticateUserResponseDTO>;
 }

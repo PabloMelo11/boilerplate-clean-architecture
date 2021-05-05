@@ -18,7 +18,7 @@ class CreateUserUseCase implements ICreateUserUseCase {
     private hashProvider: IHashProvider,
   ) {}
 
-  async execute(data: UserPropsDTO): Promise<CreatedUserResponseDTO> {
+  async createUser(data: UserPropsDTO): Promise<CreatedUserResponseDTO> {
     const userOrError = User.create(data);
 
     if (userOrError.isLeft()) {

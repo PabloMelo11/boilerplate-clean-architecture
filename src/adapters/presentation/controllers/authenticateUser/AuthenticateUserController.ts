@@ -18,7 +18,7 @@ class AuthenticateUserController implements Controller {
 
   async handle(request: AuthenticateUserDTO): Promise<HttpResponse> {
     try {
-      const result = await this.authenticateUserUseCase.execute(request);
+      const result = await this.authenticateUserUseCase.authenticate(request);
 
       if (result.isLeft()) {
         return clientError(result.value);

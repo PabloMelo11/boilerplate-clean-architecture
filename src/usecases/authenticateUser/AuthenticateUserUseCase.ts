@@ -32,7 +32,7 @@ class AuthenticateUserUseCase implements IAuthenticateUserUseCase {
     private dateProvider: IDateProvider,
   ) {}
 
-  async execute({
+  async authenticate({
     email,
     password,
   }: AuthenticateUserRequestDTO): Promise<AuthenticateUserResponseDTO> {

@@ -10,7 +10,7 @@ import { IListUsersUseCase } from '@/usecases/listUsers/IListUsersUseCase';
 class ListUsersUseCase implements IListUsersUseCase {
   constructor(private usersRepository: IUsersRepository) {}
 
-  async execute({
+  async listUsers({
     except_current_user_id,
   }: ListUsersRequestDTO): Promise<IListAllUsersResponseDTO> {
     const findUsers = await this.usersRepository.listAllUsers(

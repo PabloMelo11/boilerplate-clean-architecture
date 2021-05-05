@@ -19,7 +19,7 @@ class CreateUserController implements Controller {
     request: CreateUserControllerDTO,
   ): Promise<HttpResponse<UserViewModel>> {
     try {
-      const result = await this.createUserUseCase.execute(request);
+      const result = await this.createUserUseCase.createUser(request);
 
       if (result.isLeft()) {
         return clientError(result.value);

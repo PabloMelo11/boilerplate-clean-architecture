@@ -19,7 +19,7 @@ class ListUsersController implements Controller {
     request: ListUsersControllerDTO,
   ): Promise<HttpResponse<UserViewModel[]>> {
     try {
-      const result = await this.listUsersUseCase.execute(request);
+      const result = await this.listUsersUseCase.listUsers(request);
 
       if (result.isLeft()) {
         return clientError(result.value);
