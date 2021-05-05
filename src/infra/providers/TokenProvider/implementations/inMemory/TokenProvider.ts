@@ -2,6 +2,7 @@ import { ITokenProvider } from '@/usecases/_helpers_/providers/ITokenProvider';
 
 import { GenerateTokenDTO } from '@/infra/providers/TokenProvider/dtos/GenerateTokenDTO';
 import { VerifyTokenDTO } from '@/infra/providers/TokenProvider/dtos/VerifyTokenDTO';
+import { DecodeTokenDTO } from '@/infra/providers/TokenProvider/dtos/DecodeTokenDTO';
 
 interface IPayload {
   token: string | object;
@@ -44,6 +45,14 @@ class TokenProviderInMemory implements ITokenProvider {
     }
 
     return subject;
+  }
+
+  public decode(token: string): DecodeTokenDTO {
+    const [subject] = token.split('.');
+
+    return {
+      sub: subject,
+    };
   }
 }
 

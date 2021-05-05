@@ -1,5 +1,3 @@
-import { decode } from 'jsonwebtoken';
-
 import {
   serverError,
   forbidden,
@@ -12,10 +10,12 @@ import { Middleware } from '@/adapters/presentation/protocols/Middleware';
 import { AccessDeniedError } from '@/infra/http/errors/AccessDeniedError';
 
 import { EnsureAuthenticateRequestDTO } from '@/adapters/presentation/middlewares/authentication/dtos/EnsureAuthenticateRequestDTO';
-import { DecodedDTO } from '@/adapters/presentation/middlewares/authentication/dtos/DecodedDTO';
+import { DecodeTokenDTO } from '@/infra/providers/TokenProvider/dtos/DecodeTokenDTO';
+
+import { ITokenProvider } from '@/usecases/_helpers_/providers/ITokenProvider';
 
 export class EnsureAuthenticatedMiddleware implements Middleware {
-  constructor() {}
+  constructor(private readonly tokenProvider: ITokenProvider) {}
 
   async handle(request: EnsureAuthenticateRequestDTO): Promise<HttpResponse> {
     try {
@@ -23,7 +23,9 @@ export class EnsureAuthenticatedMiddleware implements Middleware {
 
       if (accessToken) {
         try {
-          const decoded = decode(accessToken) as DecodedDTO;
+          const decoded = this.tokenProvider.decode(
+            accessToken,
+          ) as DecodeTokenDTO;
 
           return ok({ user_id: decoded.sub });
         } catch (err) {
