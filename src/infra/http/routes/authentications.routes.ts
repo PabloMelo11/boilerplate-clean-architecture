@@ -2,7 +2,7 @@ import express from 'express';
 
 import { adaptRoute } from '../adapters/ExpressRouter';
 
-import { makeAuthenticateUserControllerFactory } from '@/infra/http/factories/controllers/accounts/authenticateUser/AuthenticateUserControllerFactory';
+import { makeAuthenticateUserControllerFactory } from '@/infra/http/factories/controllers/authenticateUser/AuthenticateUserControllerFactory';
 
 const authenticationsRoutes = express();
 

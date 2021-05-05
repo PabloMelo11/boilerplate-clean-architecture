@@ -1,4 +1,5 @@
-import { ITokenProvider } from '@/infra/providers/TokenProvider/ITokenProvider';
+import { ITokenProvider } from '@/usecases/_helpers_/providers/ITokenProvider';
+
 import { GenerateTokenDTO } from '@/infra/providers/TokenProvider/dtos/GenerateTokenDTO';
 import { VerifyTokenDTO } from '@/infra/providers/TokenProvider/dtos/VerifyTokenDTO';
 

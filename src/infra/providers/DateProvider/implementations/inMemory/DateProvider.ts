@@ -1,4 +1,4 @@
-import { IDateProvider } from '@/infra/providers/DateProvider/IDateProvider';
+import { IDateProvider } from '@/usecases/_helpers_/providers/IDateProvider';
 
 import { CompareDateDTO } from '@/infra/providers/DateProvider/dtos/CompareDateDTO';
 
