@@ -10,13 +10,13 @@ import {
 import { ICreateUserUseCase } from '@/usecases/createUser/ICreateUserUseCase';
 import { UserViewModel } from '@/adapters/presentation/controllers/views/UserViewModel';
 
-import { ICreateUserControllerDTO } from '@/adapters/presentation/controllers/createUser/dtos/ICreateUserControllerDTO';
+import { CreateUserControllerDTO } from '@/adapters/presentation/controllers/createUser/dtos/CreateUserControllerDTO';
 
 class CreateUserController implements Controller {
   constructor(private readonly createUserUseCase: ICreateUserUseCase) {}
 
   async handle(
-    request: ICreateUserControllerDTO,
+    request: CreateUserControllerDTO,
   ): Promise<HttpResponse<UserViewModel>> {
     try {
       const result = await this.createUserUseCase.execute(request);

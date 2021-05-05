@@ -1,4 +1,4 @@
-type ICreateUserControllerDTO = {
+type CreateUserControllerDTO = {
   name: string;
   email: string;
   password: string;
@@ -6,4 +6,4 @@ type ICreateUserControllerDTO = {
   avatar?: string;
 };
 
-export { ICreateUserControllerDTO };
+export { CreateUserControllerDTO };

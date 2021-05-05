@@ -1,4 +1,4 @@
-type IUserPropsDTO = {
+type UserPropsDTO = {
   name: string;
   email: string;
   password: string;
@@ -8,4 +8,4 @@ type IUserPropsDTO = {
   avatar?: string;
 };
 
-export { IUserPropsDTO };
+export { UserPropsDTO };

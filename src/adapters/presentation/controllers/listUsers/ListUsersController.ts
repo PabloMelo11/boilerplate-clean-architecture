@@ -10,13 +10,13 @@ import {
 import { IListUsersUseCase } from '@/usecases/listUsers/IListUsersUseCase';
 import { UserViewModel } from '@/adapters/presentation/controllers/views/UserViewModel';
 
-import { IListUsersControllerDTO } from '@/adapters/presentation/controllers/listUsers/dtos/IListUsersControllerDTO';
+import { ListUsersControllerDTO } from '@/adapters/presentation/controllers/listUsers/dtos/ListUsersControllerDTO';
 
 class ListUsersController implements Controller {
   constructor(private readonly listUsersUseCase: IListUsersUseCase) {}
 
   async handle(
-    request: IListUsersControllerDTO,
+    request: ListUsersControllerDTO,
   ): Promise<HttpResponse<UserViewModel[]>> {
     try {
       const result = await this.listUsersUseCase.execute(request);

@@ -7,8 +7,8 @@ import { IHashProvider } from '@/usecases/_helpers_/providers/IHashProvider';
 
 import { AccountAlreadyExistsError } from '@/usecases/_helpers_/errors/AccountAlreadyExists';
 
-import { IUserPropsDTO } from '@/entities/user/dtos/IUserPropsDTO';
-import { ICreatedUserResponseDTO } from '@/usecases/createUser/dtos/ICreatedUserResponseDTO';
+import { UserPropsDTO } from '@/entities/user/dtos/UserPropsDTO';
+import { CreatedUserResponseDTO } from '@/usecases/createUser/dtos/CreatedUserResponseDTO';
 
 import { ICreateUserUseCase } from '@/usecases/createUser/ICreateUserUseCase';
 
@@ -18,7 +18,7 @@ class CreateUserUseCase implements ICreateUserUseCase {
     private hashProvider: IHashProvider,
   ) {}
 
-  async execute(data: IUserPropsDTO): Promise<ICreatedUserResponseDTO> {
+  async execute(data: UserPropsDTO): Promise<CreatedUserResponseDTO> {
     const userOrError = User.create(data);
 
     if (userOrError.isLeft()) {

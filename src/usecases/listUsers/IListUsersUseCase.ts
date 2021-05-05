@@ -1,8 +1,8 @@
-import { IListAllUsersResponseDTO } from '@/modules/accounts/useCases/listUsers/dtos/IListUsersResponseDTO';
-import { IListUsersRequestDTO } from '@/modules/accounts/useCases/listUsers/dtos/IListUsersRequestDTO';
+import { IListAllUsersResponseDTO } from '@/usecases/listUsers/dtos/ListUsersResponseDTO';
+import { ListUsersRequestDTO } from '@/usecases/listUsers/dtos/ListUsersRequestDTO';
 
 interface IListUsersUseCase {
-  execute(data: IListUsersRequestDTO): Promise<IListAllUsersResponseDTO>;
+  execute(data: ListUsersRequestDTO): Promise<IListAllUsersResponseDTO>;
 }
 
 export { IListUsersUseCase };

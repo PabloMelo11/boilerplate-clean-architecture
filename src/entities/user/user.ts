@@ -1,14 +1,14 @@
 import { Entity } from '@/shared/domain/Entity';
 import { right, left } from '@/shared/logic/Either';
 
-import { IUserPropsDTO } from '@/entities/user/dtos/IUserPropsDTO';
-import { IUserResponseDTO } from '@/entities/user/dtos/IUserResponseDTO';
+import { UserPropsDTO } from '@/entities/user/dtos/UserPropsDTO';
+import { UserResponseDTO } from '@/entities/user/dtos/UserResponseDTO';
 
 import { Email } from './email';
 import { Password } from './password';
 import { Name } from './name';
 
-class User extends Entity<IUserPropsDTO> {
+class User extends Entity<UserPropsDTO> {
   get name(): string {
     return this.props.name;
   }
@@ -29,11 +29,11 @@ class User extends Entity<IUserPropsDTO> {
     return this.props.avatar;
   }
 
-  private constructor(props: IUserPropsDTO, id?: string) {
+  private constructor(props: UserPropsDTO, id?: string) {
     super(props, id);
   }
 
-  static create(props: IUserPropsDTO, id?: string): IUserResponseDTO {
+  static create(props: UserPropsDTO, id?: string): UserResponseDTO {
     const nameOrError = Name.create(props.name);
     const emailOrError = Email.create(props.email);
     const passwordOrError = Password.create(props.password);

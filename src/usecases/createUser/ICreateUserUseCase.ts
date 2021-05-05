@@ -1,8 +1,8 @@
-import { IUserPropsDTO } from '@/entities/user/dtos/IUserPropsDTO';
-import { ICreatedUserResponseDTO } from '@/modules/accounts/useCases/createUser/dtos/ICreatedUserResponseDTO';
+import { UserPropsDTO } from '@/entities/user/dtos/UserPropsDTO';
+import { CreatedUserResponseDTO } from '@/usecases/createUser/dtos/CreatedUserResponseDTO';
 
 interface ICreateUserUseCase {
-  execute(data: IUserPropsDTO): Promise<ICreatedUserResponseDTO>;
+  execute(data: UserPropsDTO): Promise<CreatedUserResponseDTO>;
 }
 
 export { ICreateUserUseCase };
