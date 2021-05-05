@@ -7,9 +7,9 @@ import {
   ok,
 } from '@/adapters/presentation/protocols/HttpResponse';
 
-import { IAuthenticateUserUseCase } from '@/usecases/authenticateUser/IAuthenticateUserUseCase';
-
 import { AuthenticateUserDTO } from '@/adapters/presentation/controllers/authenticateUser/dtos/AuthenticateUserDTO';
+
+import { IAuthenticateUserUseCase } from '@/usecases/authenticateUser/IAuthenticateUserUseCase';
 
 class AuthenticateUserController implements Controller {
   constructor(

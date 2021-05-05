@@ -1,4 +1,4 @@
-import { CompareDateDTO } from '@/infra/providers/DateProvider/dtos/CompareDateDTO';
+import { CompareDateDTO } from '@/usecases/_helpers_/providers/dtos/CompareDateDTO';
 
 interface IDateProvider {
   convertToUTC(date: Date): string;

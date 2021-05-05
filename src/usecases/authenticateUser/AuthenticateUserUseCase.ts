@@ -1,9 +1,10 @@
 import { left, right } from '@/shared/logic/Either';
 
+import auth from '@/config/auth';
+
+import { UserTokens } from '@/entities/userTokens/userTokens';
 import { Email } from '@/entities/user/email';
 import { Password } from '@/entities/user/password';
-
-import auth from '@/config/auth';
 
 import { IAuthenticateUserUseCase } from '@/usecases/authenticateUser/IAuthenticateUserUseCase';
 
@@ -15,13 +16,13 @@ import { IHashProvider } from '@/usecases/_helpers_/providers/IHashProvider';
 import { IDateProvider } from '@/usecases/_helpers_/providers/IDateProvider';
 
 import { AuthenticateUserRequestDTO } from '@/usecases/authenticateUser/dtos/AuthenticateUserRequestDTO';
+
 import {
   AuthenticateUserResponseDTO,
   ResponseDTO,
 } from '@/usecases/authenticateUser/dtos/AuthenticateUserResponseDTO';
 
 import { InvalidEmailOrPassword } from '@/usecases/_helpers_/errors/InvalidEmailOrPassword';
-import { UserTokens } from '@/entities/userTokens/userTokens';
 
 class AuthenticateUserUseCase implements IAuthenticateUserUseCase {
   constructor(

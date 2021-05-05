@@ -2,15 +2,16 @@ import { left, right } from '@/shared/logic/Either';
 
 import { User } from '@/entities/user/user';
 
-import { IUsersRepository } from '@/usecases/_helpers_/repositories/IUsersRepository';
-import { IHashProvider } from '@/usecases/_helpers_/providers/IHashProvider';
+import { ICreateUserUseCase } from '@/usecases/createUser/ICreateUserUseCase';
 
-import { AccountAlreadyExistsError } from '@/usecases/_helpers_/errors/AccountAlreadyExists';
+import { IUsersRepository } from '@/usecases/_helpers_/repositories/IUsersRepository';
+
+import { IHashProvider } from '@/usecases/_helpers_/providers/IHashProvider';
 
 import { UserPropsDTO } from '@/entities/user/dtos/UserPropsDTO';
 import { CreatedUserResponseDTO } from '@/usecases/createUser/dtos/CreatedUserResponseDTO';
 
-import { ICreateUserUseCase } from '@/usecases/createUser/ICreateUserUseCase';
+import { AccountAlreadyExistsError } from '@/usecases/_helpers_/errors/AccountAlreadyExists';
 
 class CreateUserUseCase implements ICreateUserUseCase {
   constructor(

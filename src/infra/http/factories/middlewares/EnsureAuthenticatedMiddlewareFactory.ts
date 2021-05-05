@@ -1,6 +1,8 @@
 import { Middleware } from '@/adapters/presentation/protocols/Middleware';
+
+import { TokenProviderJsonWebToken } from '@/infra/providers/TokenProvider/jsonwebtoken/TokenProvider';
+
 import { EnsureAuthenticatedMiddleware } from '@/adapters/presentation/middlewares/authentication/EnsureAuthenticatedMiddleware';
-import { TokenProviderJsonWebToken } from '@/infra/providers/TokenProvider/implementations/jsonwebtoken/TokenProvider';
 
 function makeEnsureAuthenticatedMiddleware(): Middleware {
   const tokenProviderJsonWebToken = new TokenProviderJsonWebToken();

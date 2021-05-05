@@ -1,6 +1,6 @@
-import { GenerateTokenDTO } from '@/infra/providers/TokenProvider/dtos/GenerateTokenDTO';
-import { VerifyTokenDTO } from '@/infra/providers/TokenProvider/dtos/VerifyTokenDTO';
-import { DecodeTokenDTO } from '@/infra/providers/TokenProvider/dtos/DecodeTokenDTO';
+import { GenerateTokenDTO } from '@/usecases/_helpers_/providers/dtos/GenerateTokenDTO';
+import { VerifyTokenDTO } from '@/usecases/_helpers_/providers/dtos/VerifyTokenDTO';
+import { DecodeTokenDTO } from '@/usecases/_helpers_/providers/dtos/DecodeTokenDTO';
 
 export interface ITokenProvider {
   generateToken(data: GenerateTokenDTO): string;

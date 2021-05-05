@@ -3,11 +3,12 @@ import { Controller } from '@/adapters/presentation/protocols/Controller';
 import { UsersRepositoryInMemory } from '@/infra/repositories/inMemory/UsersRepository';
 import { UsersTokensRepositoryInMemory } from '@/infra/repositories/inMemory/UsersTokensRepository';
 
-import { TokenProviderJsonWebToken } from '@/infra/providers/TokenProvider/implementations/jsonwebtoken/TokenProvider';
-import { HashProviderBCrypt } from '@/infra/providers/HashProvider/implementations/bcrypt/HashProvider';
-import { DateProviderDayjs } from '@/infra/providers/DateProvider/implementations/dayjs/DateProvider';
+import { TokenProviderJsonWebToken } from '@/infra/providers/TokenProvider/jsonwebtoken/TokenProvider';
+import { HashProviderBCrypt } from '@/infra/providers/HashProvider/bcrypt/HashProvider';
+import { DateProviderDayjs } from '@/infra/providers/DateProvider/dayjs/DateProvider';
 
 import { AuthenticateUserUseCase } from '@/usecases/authenticateUser/AuthenticateUserUseCase';
+
 import { AuthenticateUserController } from '@/adapters/presentation/controllers/authenticateUser/AuthenticateUserController';
 
 function makeAuthenticateUserControllerFactory(): Controller {

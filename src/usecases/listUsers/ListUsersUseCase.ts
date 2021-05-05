@@ -1,11 +1,10 @@
 import { right } from '@/shared/logic/Either';
 
 import { IUsersRepository } from '@/usecases/_helpers_/repositories/IUsersRepository';
+import { IListUsersUseCase } from '@/usecases/listUsers/IListUsersUseCase';
 
 import { IListAllUsersResponseDTO } from '@/usecases/listUsers/dtos/ListUsersResponseDTO';
 import { ListUsersRequestDTO } from '@/usecases/listUsers/dtos/ListUsersRequestDTO';
-
-import { IListUsersUseCase } from '@/usecases/listUsers/IListUsersUseCase';
 
 class ListUsersUseCase implements IListUsersUseCase {
   constructor(private usersRepository: IUsersRepository) {}

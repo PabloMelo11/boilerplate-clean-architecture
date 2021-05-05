@@ -7,10 +7,11 @@ import {
   ok,
 } from '@/adapters/presentation/protocols/HttpResponse';
 
-import { IListUsersUseCase } from '@/usecases/listUsers/IListUsersUseCase';
 import { UserViewModel } from '@/adapters/presentation/controllers/views/UserViewModel';
 
 import { ListUsersControllerDTO } from '@/adapters/presentation/controllers/listUsers/dtos/ListUsersControllerDTO';
+
+import { IListUsersUseCase } from '@/usecases/listUsers/IListUsersUseCase';
 
 class ListUsersController implements Controller {
   constructor(private readonly listUsersUseCase: IListUsersUseCase) {}

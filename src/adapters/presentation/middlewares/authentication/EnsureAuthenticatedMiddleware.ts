@@ -10,8 +10,8 @@ import { Middleware } from '@/adapters/presentation/protocols/Middleware';
 import { AccessDeniedError } from '@/infra/http/errors/AccessDeniedError';
 
 import { EnsureAuthenticateRequestDTO } from '@/adapters/presentation/middlewares/authentication/dtos/EnsureAuthenticateRequestDTO';
-import { DecodeTokenDTO } from '@/infra/providers/TokenProvider/dtos/DecodeTokenDTO';
 
+import { DecodeTokenDTO } from '@/usecases/_helpers_/providers/dtos/DecodeTokenDTO';
 import { ITokenProvider } from '@/usecases/_helpers_/providers/ITokenProvider';
 
 export class EnsureAuthenticatedMiddleware implements Middleware {

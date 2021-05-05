@@ -1,8 +1,11 @@
 import { left, right } from '@/shared/logic/Either';
 
-import { IUsersRepository } from '@/usecases/_helpers_/repositories/IUsersRepository';
 import { IShowProfileUserUseCase } from '@/usecases/showProfileUser/IShowProfileUserUseCase';
+
+import { IUsersRepository } from '@/usecases/_helpers_/repositories/IUsersRepository';
+
 import { ShowProfileUserDTO } from '@/usecases/showProfileUser/dtos/ShowProfileUserDTO';
+
 import { AccountDoesNotExists } from '@/usecases/_helpers_/errors/AccountDoesNotExists';
 
 class ShowProfileUserUseCase implements IShowProfileUserUseCase {

@@ -7,10 +7,11 @@ import {
   ok,
 } from '@/adapters/presentation/protocols/HttpResponse';
 
-import { ICreateUserUseCase } from '@/usecases/createUser/ICreateUserUseCase';
 import { UserViewModel } from '@/adapters/presentation/controllers/views/UserViewModel';
 
 import { CreateUserControllerDTO } from '@/adapters/presentation/controllers/createUser/dtos/CreateUserControllerDTO';
+
+import { ICreateUserUseCase } from '@/usecases/createUser/ICreateUserUseCase';
 
 class CreateUserController implements Controller {
   constructor(private readonly createUserUseCase: ICreateUserUseCase) {}

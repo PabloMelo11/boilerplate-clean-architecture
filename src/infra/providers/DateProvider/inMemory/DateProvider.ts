@@ -1,6 +1,6 @@
 import { IDateProvider } from '@/usecases/_helpers_/providers/IDateProvider';
 
-import { CompareDateDTO } from '@/infra/providers/DateProvider/dtos/CompareDateDTO';
+import { CompareDateDTO } from '@/usecases/_helpers_/providers/dtos/CompareDateDTO';
 
 class DateProviderInMemory implements IDateProvider {
   convertToUTC(date: Date): string {

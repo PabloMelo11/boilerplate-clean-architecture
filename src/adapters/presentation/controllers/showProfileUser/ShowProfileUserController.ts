@@ -7,10 +7,11 @@ import {
   ok,
 } from '@/adapters/presentation/protocols/HttpResponse';
 
-import { IShowProfileUserUseCase } from '@/usecases/showProfileUser/IShowProfileUserUseCase';
 import { UserViewModel } from '@/adapters/presentation/controllers/views/UserViewModel';
 
 import { ShowProfileUserDTO } from '@/adapters/presentation/controllers/showProfileUser/dtos/ShowProfileUserDTO';
+
+import { IShowProfileUserUseCase } from '@/usecases/showProfileUser/IShowProfileUserUseCase';
 
 class ShowProfileUserController implements Controller {
   constructor(
