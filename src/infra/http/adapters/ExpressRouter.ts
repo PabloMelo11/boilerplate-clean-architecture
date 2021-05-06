@@ -10,6 +10,10 @@ export const adaptRoute = (controller: Controller) => {
       user_id: request.user_id,
     };
 
+    if (request.file) {
+      requestData.avatar_file = request.file.filename;
+    }
+
     const httpResponse = await controller.handle(requestData);
 
     if (httpResponse.statusCode >= 200 && httpResponse.statusCode <= 299) {

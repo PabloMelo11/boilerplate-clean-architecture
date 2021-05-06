@@ -5,15 +5,15 @@ class UserViewModel {
   name: string;
   email: string;
   driver_license: string;
-  avatar?: string;
+  avatar: string;
 
   static map(entity: User): UserViewModel {
     return {
       id: entity.id,
-      name: entity.name,
-      email: entity.email,
-      driver_license: entity.driver_license,
-      avatar: entity.avatar ?? null,
+      name: entity.props.name,
+      email: entity.props.email,
+      driver_license: entity.props.driver_license,
+      avatar: entity.props.avatar ?? null,
     };
   }
 
