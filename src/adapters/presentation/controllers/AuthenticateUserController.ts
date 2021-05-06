@@ -7,16 +7,15 @@ import {
   ok,
 } from '@/adapters/presentation/protocols/HttpResponse';
 
-import { AuthenticateUserDTO } from '@/adapters/presentation/controllers/authenticateUser/dtos/AuthenticateUserDTO';
-
 import { IAuthenticateUserUseCase } from '@/usecases/authenticateUser/IAuthenticateUserUseCase';
+import { AuthenticateUserRequestDTO } from '@/usecases/authenticateUser/dtos/AuthenticateUserRequestDTO';
 
 class AuthenticateUserController implements Controller {
   constructor(
     private readonly authenticateUserUseCase: IAuthenticateUserUseCase,
   ) {}
 
-  async handle(request: AuthenticateUserDTO): Promise<HttpResponse> {
+  async handle(request: AuthenticateUserRequestDTO): Promise<HttpResponse> {
     try {
       const result = await this.authenticateUserUseCase.authenticate(request);
 

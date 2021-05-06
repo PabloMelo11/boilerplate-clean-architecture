@@ -9,8 +9,6 @@ import {
 
 import { UserViewModel } from '@/adapters/presentation/controllers/views/UserViewModel';
 
-import { ShowProfileUserDTO } from '@/adapters/presentation/controllers/showProfileUser/dtos/ShowProfileUserDTO';
-
 import { IShowProfileUserUseCase } from '@/usecases/showProfileUser/IShowProfileUserUseCase';
 
 class ShowProfileUserController implements Controller {
@@ -18,7 +16,7 @@ class ShowProfileUserController implements Controller {
     private readonly showProfileUserUseCase: IShowProfileUserUseCase,
   ) {}
 
-  async handle({ user_id }: ShowProfileUserDTO): Promise<HttpResponse> {
+  async handle(user_id: string): Promise<HttpResponse> {
     try {
       const result = await this.showProfileUserUseCase.loadProfile(user_id);
 

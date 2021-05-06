@@ -9,7 +9,7 @@ import { DateProviderDayjs } from '@/infra/providers/DateProvider/dayjs/DateProv
 
 import { AuthenticateUserUseCase } from '@/usecases/authenticateUser/AuthenticateUserUseCase';
 
-import { AuthenticateUserController } from '@/adapters/presentation/controllers/authenticateUser/AuthenticateUserController';
+import { AuthenticateUserController } from '@/adapters/presentation/controllers/AuthenticateUserController';
 
 function makeAuthenticateUserControllerFactory(): Controller {
   const usersRepository = new UsersRepositoryInMemory();

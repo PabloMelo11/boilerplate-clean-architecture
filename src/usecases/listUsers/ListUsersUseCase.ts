@@ -3,7 +3,7 @@ import { right } from '@/shared/logic/Either';
 import { IUsersRepository } from '@/usecases/_helpers_/repositories/IUsersRepository';
 import { IListUsersUseCase } from '@/usecases/listUsers/IListUsersUseCase';
 
-import { IListAllUsersResponseDTO } from '@/usecases/listUsers/dtos/ListUsersResponseDTO';
+import { ListAllUsersResponseDTO } from '@/usecases/listUsers/dtos/ListUsersResponseDTO';
 import { ListUsersRequestDTO } from '@/usecases/listUsers/dtos/ListUsersRequestDTO';
 
 class ListUsersUseCase implements IListUsersUseCase {
@@ -11,7 +11,7 @@ class ListUsersUseCase implements IListUsersUseCase {
 
   async listUsers({
     except_current_user_id,
-  }: ListUsersRequestDTO): Promise<IListAllUsersResponseDTO> {
+  }: ListUsersRequestDTO): Promise<ListAllUsersResponseDTO> {
     const findUsers = await this.usersRepository.listAllUsers(
       except_current_user_id,
     );

@@ -4,7 +4,7 @@ import { UsersRepositoryInMemory } from '@/infra/repositories/inMemory/UsersRepo
 
 import { ShowProfileUserUseCase } from '@/usecases/showProfileUser/ShowProfileUserUseCase';
 
-import { ShowProfileUserController } from '@/adapters/presentation/controllers/showProfileUser/ShowProfileUserController';
+import { ShowProfileUserController } from '@/adapters/presentation/controllers/ShowProfileUserController';
 
 function makeShowProfileUser(): Controller {
   const usersRepository = new UsersRepositoryInMemory();

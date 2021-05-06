@@ -1,4 +1,4 @@
-type CreateUserControllerDTO = {
+type CreateUserRequestDTO = {
   name: string;
   email: string;
   password: string;
@@ -6,4 +6,4 @@ type CreateUserControllerDTO = {
   avatar?: string;
 };
 
-export { CreateUserControllerDTO };
+export { CreateUserRequestDTO };

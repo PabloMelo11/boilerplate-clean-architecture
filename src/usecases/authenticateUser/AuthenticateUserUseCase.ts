@@ -1,6 +1,6 @@
 import { left, right } from '@/shared/logic/Either';
 
-import auth from '@/config/auth';
+import auth from '@/shared/config/auth';
 
 import { UserTokens } from '@/entities/userTokens/userTokens';
 import { Email } from '@/entities/user/email';

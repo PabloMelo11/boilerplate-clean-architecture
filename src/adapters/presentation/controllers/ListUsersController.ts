@@ -9,7 +9,7 @@ import {
 
 import { UserViewModel } from '@/adapters/presentation/controllers/views/UserViewModel';
 
-import { ListUsersControllerDTO } from '@/adapters/presentation/controllers/listUsers/dtos/ListUsersControllerDTO';
+import { ListUsersRequestDTO } from '@/usecases/listUsers/dtos/ListUsersRequestDTO';
 
 import { IListUsersUseCase } from '@/usecases/listUsers/IListUsersUseCase';
 
@@ -17,7 +17,7 @@ class ListUsersController implements Controller {
   constructor(private readonly listUsersUseCase: IListUsersUseCase) {}
 
   async handle(
-    request: ListUsersControllerDTO,
+    request: ListUsersRequestDTO,
   ): Promise<HttpResponse<UserViewModel[]>> {
     try {
       const result = await this.listUsersUseCase.listUsers(request);

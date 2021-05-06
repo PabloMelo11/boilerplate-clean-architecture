@@ -9,7 +9,7 @@ import {
 
 import { UserViewModel } from '@/adapters/presentation/controllers/views/UserViewModel';
 
-import { CreateUserControllerDTO } from '@/adapters/presentation/controllers/createUser/dtos/CreateUserControllerDTO';
+import { CreateUserRequestDTO } from '@/usecases/createUser/dtos/CreateUserRequestDTO';
 
 import { ICreateUserUseCase } from '@/usecases/createUser/ICreateUserUseCase';
 
@@ -17,7 +17,7 @@ class CreateUserController implements Controller {
   constructor(private readonly createUserUseCase: ICreateUserUseCase) {}
 
   async handle(
-    request: CreateUserControllerDTO,
+    request: CreateUserRequestDTO,
   ): Promise<HttpResponse<UserViewModel>> {
     try {
       const result = await this.createUserUseCase.createUser(request);

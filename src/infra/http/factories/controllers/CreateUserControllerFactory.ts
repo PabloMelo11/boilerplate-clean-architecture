@@ -5,7 +5,7 @@ import { HashProviderBCrypt } from '@/infra/providers/HashProvider/bcrypt/HashPr
 
 import { CreateUserUseCase } from '@/usecases/createUser/CreateUserUseCase';
 
-import { CreateUserController } from '@/adapters/presentation/controllers/createUser/CreateUserController';
+import { CreateUserController } from '@/adapters/presentation/controllers/CreateUserController';
 
 function makeCreateUserControllerFactory(): Controller {
   const usersRepository = new UsersRepositoryInMemory();

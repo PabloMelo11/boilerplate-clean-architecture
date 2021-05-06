@@ -4,7 +4,7 @@ import { UsersRepositoryInMemory } from '@/infra/repositories/inMemory/UsersRepo
 
 import { ListUsersUseCase } from '@/usecases/listUsers/ListUsersUseCase';
 
-import { ListUsersController } from '@/adapters/presentation/controllers/listUsers/ListUsersController';
+import { ListUsersController } from '@/adapters/presentation/controllers/ListUsersController';
 
 function makeListUsersControllerFactory(): Controller {
   const usersRepository = new UsersRepositoryInMemory();

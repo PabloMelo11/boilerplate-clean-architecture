@@ -3,7 +3,7 @@ import express from 'express';
 import { adaptRoute } from '../adapters/ExpressRouter';
 import { auth } from '@/infra/http/middlewares/auth';
 
-import { makeShowProfileUser } from '@/infra/http/factories/controllers/showProfileUser/ShowProfileUserFactory';
+import { makeShowProfileUser } from '@/infra/http/factories/controllers/ShowProfileUserFactory';
 
 const profileRoutes = express();
 
