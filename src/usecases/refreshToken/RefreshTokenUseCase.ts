@@ -17,6 +17,7 @@ import {
 } from '@/usecases/refreshToken/dtos/RefreshTokenResponseDTO';
 
 import { PayloadVerifyTokenDTO } from '@/usecases/refreshToken/dtos/PayloadVerifyTokenDTO';
+import { RefreshTokenRequestDTO } from '@/usecases/refreshToken/dtos/RefreshTokenRequestDTO';
 
 import { RefreshTokenDoesNotExists } from '@/usecases/_helpers_/errors/RefreshTokenDoesNotExists';
 
@@ -27,9 +28,9 @@ class RefreshTokenUseCase implements IRefreshTokenUseCase {
     private dateProvider: IDateProvider,
   ) {}
 
-  async createNewRefreshToken(
-    refresh_token: string,
-  ): Promise<RefreshTokenResponseDTO> {
+  async createNewRefreshToken({
+    refresh_token,
+  }: RefreshTokenRequestDTO): Promise<RefreshTokenResponseDTO> {
     const {
       secret_refresh_token,
       expires_in_refresh_token,

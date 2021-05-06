@@ -13,7 +13,7 @@ authenticationsRoutes.post(
 );
 
 authenticationsRoutes.post(
-  '/refresh-toke',
+  '/refresh-token',
   adaptRoute(makeRefreshTokenControllerFactory()),
 );
 

@@ -7,16 +7,20 @@ import {
   ok,
 } from '@/adapters/presentation/protocols/HttpResponse';
 
+import { RefreshTokenRequestDTO } from '@/usecases/refreshToken/dtos/RefreshTokenRequestDTO';
+
 import { IRefreshTokenUseCase } from '@/usecases/refreshToken/IRefreshTokenUseCase';
 
 class RefreshTokenController implements Controller {
   constructor(private readonly refreshTokenUseCase: IRefreshTokenUseCase) {}
 
-  async handle(refresh_token: string): Promise<HttpResponse> {
+  async handle({
+    refresh_token,
+  }: RefreshTokenRequestDTO): Promise<HttpResponse> {
     try {
-      const result = await this.refreshTokenUseCase.createNewRefreshToken(
+      const result = await this.refreshTokenUseCase.createNewRefreshToken({
         refresh_token,
-      );
+      });
 
       if (result.isLeft()) {
         return clientError(result.value);

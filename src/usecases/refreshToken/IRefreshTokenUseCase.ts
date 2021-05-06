@@ -1,8 +1,9 @@
 import { RefreshTokenResponseDTO } from '@/usecases/refreshToken/dtos/RefreshTokenResponseDTO';
+import { RefreshTokenRequestDTO } from '@/usecases/refreshToken/dtos/RefreshTokenRequestDTO';
 
 interface IRefreshTokenUseCase {
   createNewRefreshToken(
-    refresh_token: string,
+    data: RefreshTokenRequestDTO,
   ): Promise<RefreshTokenResponseDTO>;
 }
 
