@@ -9,6 +9,8 @@ import {
 
 import { UserViewModel } from '@/adapters/presentation/controllers/views/UserViewModel';
 
+import { ShowProfileUserRequestDTO } from '@/usecases/showProfileUser/dtos/ShowProfileUserRequestDTO';
+
 import { IShowProfileUserUseCase } from '@/usecases/showProfileUser/IShowProfileUserUseCase';
 
 class ShowProfileUserController implements Controller {
@@ -16,9 +18,9 @@ class ShowProfileUserController implements Controller {
     private readonly showProfileUserUseCase: IShowProfileUserUseCase,
   ) {}
 
-  async handle(user_id: string): Promise<HttpResponse> {
+  async handle({ user_id }: ShowProfileUserRequestDTO): Promise<HttpResponse> {
     try {
-      const result = await this.showProfileUserUseCase.loadProfile(user_id);
+      const result = await this.showProfileUserUseCase.loadProfile({ user_id });
 
       if (result.isLeft()) {
         return clientError(result.value);
