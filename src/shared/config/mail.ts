@@ -13,8 +13,8 @@ export default {
 
   defaults: {
     from: {
-      email: 'cleancode@example.com.br',
-      name: 'Clean Code',
+      email: 'oi@rentx.com.br',
+      name: 'Rentx',
     },
   },
 } as MailConfigDTO;
