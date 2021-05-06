@@ -22,6 +22,14 @@ class UsersRepositoryInMemory implements IUsersRepository {
   public async findById(user_id: string): Promise<User> {
     return UsersRepositoryInMemory.users.find(user => user.id === user_id);
   }
+
+  public async update(data: User): Promise<void> {
+    const userIndex = UsersRepositoryInMemory.users.findIndex(
+      user => user.id === data.id,
+    );
+
+    UsersRepositoryInMemory.users[userIndex] = data;
+  }
 }
 
 export { UsersRepositoryInMemory };
