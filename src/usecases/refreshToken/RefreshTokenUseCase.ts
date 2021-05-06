@@ -15,6 +15,7 @@ import {
   RefreshTokenResponseDTO,
   ResponseDTO,
 } from '@/usecases/refreshToken/dtos/RefreshTokenResponseDTO';
+
 import { PayloadVerifyTokenDTO } from '@/usecases/refreshToken/dtos/PayloadVerifyTokenDTO';
 
 import { RefreshTokenDoesNotExists } from '@/usecases/_helpers_/errors/RefreshTokenDoesNotExists';
