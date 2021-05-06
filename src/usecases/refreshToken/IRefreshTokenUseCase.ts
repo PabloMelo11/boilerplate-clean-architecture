@@ -1,7 +1,7 @@
-import { RefreshTokenDoesNotExists } from '@/usecases/_helpers_/errors/RefreshTokenDoesNotExists';
+import { RefreshTokenResponseDTO } from '@/usecases/refreshToken/dtos/RefreshTokenResponseDTO';
 
 interface IRefreshTokenUseCase {
-  createRefreshToken(refresh_token: string): Promise<RefreshTokenDoesNotExists>;
+  createRefreshToken(refresh_token: string): Promise<RefreshTokenResponseDTO>;
 }
 
 export { IRefreshTokenUseCase };

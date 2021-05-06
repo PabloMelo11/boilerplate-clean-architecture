@@ -9,4 +9,4 @@ type ResponseDTO = {
 
 type RefreshTokenResponseDTO = Either<RefreshTokenDoesNotExists, ResponseDTO>;
 
-export { RefreshTokenResponseDTO };
+export { RefreshTokenResponseDTO, ResponseDTO };
