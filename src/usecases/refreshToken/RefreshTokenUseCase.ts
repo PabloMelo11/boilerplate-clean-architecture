@@ -26,7 +26,7 @@ class RefreshTokenUseCase implements IRefreshTokenUseCase {
     private dateProvider: IDateProvider,
   ) {}
 
-  async createRefreshToken(
+  async createNewRefreshToken(
     refresh_token: string,
   ): Promise<RefreshTokenResponseDTO> {
     const {
