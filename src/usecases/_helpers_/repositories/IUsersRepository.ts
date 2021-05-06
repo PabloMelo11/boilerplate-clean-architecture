@@ -1,9 +1,9 @@
 import { User } from '@/entities/user/user';
 
-import { UserPropsDTO } from '@/entities/user/dtos/UserPropsDTO';
+import { CreateUserRequestDTO } from '@/usecases/createUser/dtos/CreateUserRequestDTO';
 
 interface IUsersRepository {
-  create(user: UserPropsDTO): Promise<void>;
+  create(user: CreateUserRequestDTO): Promise<void>;
   findByEmail(email: string): Promise<User>;
   listAllUsers(except_current_user_id: string): Promise<User[]>;
   findById(user_id: string): Promise<User>;
