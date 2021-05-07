@@ -36,15 +36,19 @@ class SendForgotPasswordMailUseCase implements ISendForgotPasswordMailUseCase {
       return left(new AccountDoesNotExists());
     }
 
+    const id = this.uuidProvider.generateUUID();
     const token_forgot_password = this.uuidProvider.generateUUID();
     const expires_date = this.dateProvider.addHours(3);
 
-    const userTokenOrError = UserTokens.create({
-      user_id: user.id,
-      token: token_forgot_password,
-      expires_date: expires_date,
-      type: 'forgot_password',
-    });
+    const userTokenOrError = UserTokens.create(
+      {
+        user_id: user.id,
+        token: token_forgot_password,
+        expires_date: expires_date,
+        type: 'forgot_password',
+      },
+      id,
+    );
 
     if (userTokenOrError.isLeft()) {
       return left(userTokenOrError.value);
@@ -53,12 +57,11 @@ class SendForgotPasswordMailUseCase implements ISendForgotPasswordMailUseCase {
     const userToken: UserTokens = userTokenOrError.value;
 
     await this.usersTokensRepository.create({
-      ...userToken,
-      ...userToken.props,
+      id: userToken.id,
+      type: userToken.type,
       expires_date: userToken.expires_date,
       token: userToken.token,
       user_id: userToken.user_id,
-      type: userToken.type,
     });
 
     const templatePath = resolve(

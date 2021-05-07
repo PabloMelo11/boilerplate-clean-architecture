@@ -53,7 +53,7 @@ class ResetPasswordUseCase implements IResetPasswordUseCase {
 
     const compare_day = this.dateProvider.compareInDays({
       start_date: date_now,
-      end_date: user_token.expires_date,
+      end_date: user_token.expires_date.value,
     });
 
     if (compare_day >= 1) {
@@ -62,7 +62,7 @@ class ResetPasswordUseCase implements IResetPasswordUseCase {
 
     const compare_hour = this.dateProvider.compareInHours({
       start_date: date_now,
-      end_date: user_token.expires_date,
+      end_date: user_token.expires_date.value,
     });
 
     if (compare_hour > 3) {

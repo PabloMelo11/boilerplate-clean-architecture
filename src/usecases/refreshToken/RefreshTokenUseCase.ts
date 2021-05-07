@@ -10,6 +10,7 @@ import { IUsersTokensRepository } from '@/usecases/_helpers_/repositories/IUsers
 
 import { ITokenProvider } from '@/usecases/_helpers_/providers/ITokenProvider';
 import { IDateProvider } from '@/usecases/_helpers_/providers/IDateProvider';
+import { IUUIDProvider } from '@/usecases/_helpers_/providers/IUUIDProvider';
 
 import {
   RefreshTokenResponseDTO,
@@ -26,6 +27,7 @@ class RefreshTokenUseCase implements IRefreshTokenUseCase {
     private usersTokensRepository: IUsersTokensRepository,
     private tokenProvider: ITokenProvider,
     private dateProvider: IDateProvider,
+    private uuidProvider: IUUIDProvider,
   ) {}
 
   async createNewRefreshToken({
@@ -67,12 +69,16 @@ class RefreshTokenUseCase implements IRefreshTokenUseCase {
       expires_refresh_token_days,
     );
 
-    const userTokenOrError = UserTokens.create({
-      user_id,
-      token: refresh_token,
-      expires_date: refresh_token_expires_date,
-      type: 'refresh_token',
-    });
+    const id = this.uuidProvider.generateUUID();
+    const userTokenOrError = UserTokens.create(
+      {
+        user_id,
+        token: refresh_token,
+        expires_date: refresh_token_expires_date,
+        type: 'refresh_token',
+      },
+      id,
+    );
 
     if (userTokenOrError.isLeft()) {
       return left(userTokenOrError.value);
@@ -81,12 +87,11 @@ class RefreshTokenUseCase implements IRefreshTokenUseCase {
     const userToken: UserTokens = userTokenOrError.value;
 
     await this.usersTokensRepository.create({
-      ...userToken,
-      ...userToken.props,
-      expires_date: userToken.expires_date,
-      token: new_refresh_token,
-      user_id,
+      id: userToken.id,
       type: userToken.type,
+      expires_date: userToken.expires_date,
+      token: userToken.token,
+      user_id: userToken.user_id,
     });
 
     const token = this.tokenProvider.generateToken({

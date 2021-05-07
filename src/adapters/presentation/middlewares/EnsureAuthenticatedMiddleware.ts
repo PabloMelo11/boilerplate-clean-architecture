@@ -10,14 +10,19 @@ import { Middleware } from '@/adapters/presentation/protocols/Middleware';
 import { AccessDeniedError } from '@/infra/http/errors/AccessDeniedError';
 
 import { DecodeTokenDTO } from '@/usecases/_helpers_/providers/dtos/DecodeTokenDTO';
+
 import { ITokenProvider } from '@/usecases/_helpers_/providers/ITokenProvider';
+import { IUsersTokensRepository } from '@/usecases/_helpers_/repositories/IUsersTokensRepository';
 
 type EnsureAuthenticateRequestDTO = {
   accessToken: string;
 };
 
 export class EnsureAuthenticatedMiddleware implements Middleware {
-  constructor(private readonly tokenProvider: ITokenProvider) {}
+  constructor(
+    private readonly usersTokensRepository: IUsersTokensRepository,
+    private readonly tokenProvider: ITokenProvider,
+  ) {}
 
   async handle(request: EnsureAuthenticateRequestDTO): Promise<HttpResponse> {
     try {
@@ -25,6 +30,14 @@ export class EnsureAuthenticatedMiddleware implements Middleware {
 
       if (accessToken) {
         try {
+          const token = await this.usersTokensRepository.findByToken(
+            accessToken,
+          );
+
+          if (!token) {
+            return forbidden(new AccessDeniedError());
+          }
+
           const decoded = this.tokenProvider.decode(
             accessToken,
           ) as DecodeTokenDTO;
