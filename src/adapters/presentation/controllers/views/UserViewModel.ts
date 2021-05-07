@@ -10,15 +10,21 @@ class UserViewModel {
   static map(entity: User): UserViewModel {
     return {
       id: entity.id,
-      name: entity.props.name,
-      email: entity.props.email,
-      driver_license: entity.props.driver_license,
-      avatar: entity.props.avatar ?? null,
+      name: entity.name.value,
+      email: entity.email.value,
+      driver_license: entity.driver_license,
+      avatar: entity.avatar ?? null,
     };
   }
 
-  static mapCollection(entities: User[]): UserViewModel[] {
-    return entities.map(entity => UserViewModel.map(entity));
+  static mapCollection(entities: UserViewModel[]): UserViewModel[] {
+    return entities.map(entity => ({
+      id: entity.id,
+      name: entity.name,
+      email: entity.email,
+      driver_license: entity.driver_license,
+      avatar: entity.avatar ?? null,
+    }));
   }
 }
 

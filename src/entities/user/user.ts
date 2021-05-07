@@ -8,12 +8,11 @@ import { Password } from './password';
 import { Name } from './name';
 
 type CreateUserPropsDTO = {
+  id: string;
   name: Name;
   email: Email;
   password: Password;
   driver_license: string;
-
-  id?: string;
   avatar?: string;
 };
 
@@ -30,7 +29,7 @@ class User {
     Object.freeze(this);
   }
 
-  static create(props: UserPropsDTO): UserResponseDTO {
+  static create(props: UserPropsDTO, id?: string): UserResponseDTO {
     const nameOrError = Name.create(props.name);
     const emailOrError = Email.create(props.email);
     const passwordOrError = Password.create(props.password);
@@ -52,6 +51,7 @@ class User {
     const password: Password = passwordOrError.value;
 
     const user = new User({
+      id: props.id || id,
       name,
       email,
       password,

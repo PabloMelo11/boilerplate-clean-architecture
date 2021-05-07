@@ -4,10 +4,10 @@ import { CreateUserRequestDTO } from '@/usecases/createUser/dtos/CreateUserReque
 
 interface IUsersRepository {
   create(user: CreateUserRequestDTO): Promise<void>;
-  findByEmail(email: string): Promise<User>;
-  listAllUsers(except_current_user_id: string): Promise<User[]>;
-  findById(user_id: string): Promise<User>;
-  update(user: User): Promise<void>;
+  findByEmail(email: string): Promise<CreateUserRequestDTO>;
+  listAllUsers(except_current_user_id: string): Promise<CreateUserRequestDTO[]>;
+  findById(user_id: string): Promise<CreateUserRequestDTO>;
+  update(user: CreateUserRequestDTO): Promise<void>;
 }
 
 export { IUsersRepository };
