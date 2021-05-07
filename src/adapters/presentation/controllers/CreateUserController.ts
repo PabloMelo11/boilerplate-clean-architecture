@@ -7,6 +7,8 @@ import {
   ok,
 } from '@/adapters/presentation/protocols/HttpResponse';
 
+import { Validation } from '@/adapters/presentation/protocols/Validation';
+
 import { UserViewModel } from '@/adapters/presentation/controllers/views/UserViewModel';
 
 import { CreateUserRequestDTO } from '@/usecases/createUser/dtos/CreateUserRequestDTO';
@@ -14,12 +16,21 @@ import { CreateUserRequestDTO } from '@/usecases/createUser/dtos/CreateUserReque
 import { ICreateUserUseCase } from '@/usecases/createUser/ICreateUserUseCase';
 
 class CreateUserController implements Controller {
-  constructor(private readonly createUserUseCase: ICreateUserUseCase) {}
+  constructor(
+    private readonly validation: Validation,
+    private readonly createUserUseCase: ICreateUserUseCase,
+  ) {}
 
   async handle(
     request: CreateUserRequestDTO,
   ): Promise<HttpResponse<UserViewModel>> {
     try {
+      const error = this.validation.validate(request);
+
+      if (error) {
+        return clientError(error);
+      }
+
       const result = await this.createUserUseCase.createUser(request);
 
       if (result.isLeft()) {

@@ -1,5 +1,7 @@
 import { Controller } from '@/adapters/presentation/protocols/Controller';
 
+import { makeCreateUserValidationFactory } from '@/infra/http/factories/validations/CreateUserValidationFactory';
+
 import { UsersRepositoryInMemory } from '@/infra/repositories/inMemory/UsersRepository';
 import { HashProviderBCrypt } from '@/infra/providers/HashProvider/bcrypt/HashProvider';
 import { UUIDProvider } from '@/infra/providers/UUIDProvider/uuid/UUIDProvider';
@@ -19,7 +21,10 @@ function makeCreateUserControllerFactory(): Controller {
     uuidProvider,
   );
 
-  const createUserController = new CreateUserController(createUserUseCase);
+  const createUserController = new CreateUserController(
+    makeCreateUserValidationFactory(),
+    createUserUseCase,
+  );
 
   return createUserController;
 }
