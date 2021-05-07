@@ -1,3 +1,5 @@
+import { makeSendForgotPasswordValidationFactory } from '@/infra/http/factories/validations/SendForgotPasswordValidationFactory';
+
 import { UsersRepositoryInMemory } from '@/infra/repositories/inMemory/UsersRepository';
 import { UsersTokensRepositoryInMemory } from '@/infra/repositories/inMemory/UsersTokensRepository';
 
@@ -40,6 +42,7 @@ function makeSendForgotPasswordControllerFactory() {
   );
 
   const sendForgotPasswordMailController = new SendForgotPasswordMailController(
+    makeSendForgotPasswordValidationFactory(),
     sendForgotPasswordMailUseCase,
   );
 

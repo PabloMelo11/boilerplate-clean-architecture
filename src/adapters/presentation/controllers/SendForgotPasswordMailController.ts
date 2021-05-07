@@ -7,11 +7,14 @@ import {
   notContent,
 } from '@/adapters/presentation/protocols/HttpResponse';
 
+import { Validation } from '@/adapters/presentation/protocols/Validation';
+
 import { ISendForgotPasswordMailUseCase } from '@/usecases/sendForgotPasswordMail/ISendForgotPasswordMailUseCase';
 import { SendForgotPasswordMailRequestDTO } from '@/usecases/sendForgotPasswordMail/dtos/SendForgotPasswordMailRequestDTO';
 
 class SendForgotPasswordMailController implements Controller {
   constructor(
+    private readonly validation: Validation,
     private readonly sendForgotPasswordMailUseCase: ISendForgotPasswordMailUseCase,
   ) {}
 
@@ -19,6 +22,14 @@ class SendForgotPasswordMailController implements Controller {
     email,
   }: SendForgotPasswordMailRequestDTO): Promise<HttpResponse> {
     try {
+      const error = this.validation.validate({
+        email,
+      });
+
+      if (error) {
+        return clientError(error);
+      }
+
       const result = await this.sendForgotPasswordMailUseCase.sendForgotPasswordMail(
         { email },
       );
