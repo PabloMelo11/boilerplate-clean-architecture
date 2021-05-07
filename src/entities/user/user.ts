@@ -7,15 +7,6 @@ import { Email } from './email';
 import { Password } from './password';
 import { Name } from './name';
 
-type CreateUserPropsDTO = {
-  id: string;
-  name: Name;
-  email: Email;
-  password: Password;
-  driver_license: string;
-  avatar?: string;
-};
-
 class User {
   public readonly id: string;
   public readonly name: Name;
@@ -24,7 +15,7 @@ class User {
   public readonly driver_license: string;
   public readonly avatar: string;
 
-  private constructor(props: CreateUserPropsDTO) {
+  private constructor(props: User) {
     Object.assign(this, props);
     Object.freeze(this);
   }

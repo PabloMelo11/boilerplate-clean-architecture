@@ -1,4 +1,3 @@
-import { Entity } from '@/shared/domain/Entity';
 import { right, left } from '@/shared/logic/Either';
 
 import { UserTokenPropsDTO } from '@/entities/userTokens/dtos/UserTokenPropsDTO';
@@ -7,25 +6,16 @@ import { UserTokenResponseDTO } from '@/entities/userTokens/dtos/UserTokenRespon
 import { Type } from '@/entities/userTokens/type';
 import { ExpiresDate } from '@/entities/userTokens/expiresDate';
 
-class UserTokens extends Entity<UserTokenPropsDTO> {
-  get token() {
-    return this.props.token;
-  }
+class UserTokens {
+  public readonly id: string;
+  public readonly token: string;
+  public readonly type: Type;
+  public readonly user_id: string;
+  public readonly expires_date: ExpiresDate;
 
-  get type() {
-    return this.props.type;
-  }
-
-  get user_id() {
-    return this.props.user_id;
-  }
-
-  get expires_date() {
-    return this.props.expires_date;
-  }
-
-  private constructor(props: UserTokenPropsDTO, id?: string) {
-    super(props, id);
+  private constructor(props: UserTokens) {
+    Object.assign(this, props);
+    Object.freeze(this);
   }
 
   static create(props: UserTokenPropsDTO, id?: string): UserTokenResponseDTO {
@@ -43,13 +33,13 @@ class UserTokens extends Entity<UserTokenPropsDTO> {
     const type: Type = typeOrError.value;
     const expires_date: ExpiresDate = expiresDateOrError.value;
 
-    const userTokenProps = {
-      ...props,
-      type: type.value,
-      expires_date: expires_date.value,
-    };
-
-    const userToken = new UserTokens(userTokenProps, id);
+    const userToken = new UserTokens({
+      id: props.id || id,
+      token: props.token,
+      user_id: props.user_id,
+      type,
+      expires_date,
+    });
 
     return right(userToken);
   }
