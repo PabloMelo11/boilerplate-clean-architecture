@@ -73,15 +73,9 @@ class ResetPasswordUseCase implements IResetPasswordUseCase {
 
     const passwordHash = await this.hashProvider.generateHash(_password.value);
 
-    user.props.password = passwordHash;
+    user.password = passwordHash;
 
-    const dataUpdate = {
-      ...user,
-      ...user.props,
-      password: passwordHash,
-    } as User;
-
-    await this.usersRepository.update(dataUpdate);
+    await this.usersRepository.update(user);
 
     await this.usersTokensRepository.deleteById(user_token.id);
 
