@@ -39,9 +39,9 @@ class CreateUserController implements Controller {
 
       const user = result.value;
 
-      const userView = UserViewModel.map(user);
+      const user_view_model = UserViewModel.map(user);
 
-      return ok(userView);
+      return ok(user_view_model);
     } catch (err) {
       return serverError(err);
     }
