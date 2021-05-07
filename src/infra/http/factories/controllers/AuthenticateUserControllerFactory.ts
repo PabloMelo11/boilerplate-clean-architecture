@@ -1,5 +1,7 @@
 import { Controller } from '@/adapters/presentation/protocols/Controller';
 
+import { makeAuthenticationValidationFactory } from '@/infra/http/factories/validations/AuthenticationValidationFactory';
+
 import { UsersRepositoryInMemory } from '@/infra/repositories/inMemory/UsersRepository';
 import { UsersTokensRepositoryInMemory } from '@/infra/repositories/inMemory/UsersTokensRepository';
 
@@ -31,6 +33,7 @@ function makeAuthenticateUserControllerFactory(): Controller {
   );
 
   const authenticateUserController = new AuthenticateUserController(
+    makeAuthenticationValidationFactory(),
     authenticateUserUseCase,
   );
 
