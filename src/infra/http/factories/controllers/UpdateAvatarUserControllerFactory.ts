@@ -9,12 +9,12 @@ import { UpdateAvatarUserUseCase } from '@/usecases/updateAvatarUser/UpdateAvata
 import { UpdateAvatarUserController } from '@/adapters/presentation/controllers/UpdateAvatarUserController';
 
 function makeUpdateAvatarUserControllerFactory() {
-  const usersRepository = new UsersRepositoryInMemory();
+  const usersRepositoryInMemory = new UsersRepositoryInMemory();
 
   const storageProviderInMemory = new StorageProviderInMemory();
 
   const updateAvatarUserUseCase = new UpdateAvatarUserUseCase(
-    usersRepository,
+    usersRepositoryInMemory,
     storageProviderInMemory,
   );
 

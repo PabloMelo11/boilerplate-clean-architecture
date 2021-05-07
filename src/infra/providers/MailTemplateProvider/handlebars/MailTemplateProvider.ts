@@ -16,4 +16,4 @@ class HandlebarsMailTemplateProvider implements IMailTemplateProvider {
   }
 }
 
-export default HandlebarsMailTemplateProvider;
+export { HandlebarsMailTemplateProvider };

@@ -1,5 +1,3 @@
-import { Controller } from '@/adapters/presentation/protocols/Controller';
-
 import { UsersTokensRepositoryInMemory } from '@/infra/repositories/inMemory/UsersTokensRepository';
 
 import { TokenProviderJsonWebToken } from '@/infra/providers/TokenProvider/jsonwebtoken/TokenProvider';

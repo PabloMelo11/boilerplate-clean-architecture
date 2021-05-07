@@ -8,11 +8,11 @@ import { CreateUserUseCase } from '@/usecases/createUser/CreateUserUseCase';
 import { CreateUserController } from '@/adapters/presentation/controllers/CreateUserController';
 
 function makeCreateUserControllerFactory(): Controller {
-  const usersRepository = new UsersRepositoryInMemory();
+  const usersRepositoryInMemory = new UsersRepositoryInMemory();
   const hashProviderBCrypt = new HashProviderBCrypt();
 
   const createUserUseCase = new CreateUserUseCase(
-    usersRepository,
+    usersRepositoryInMemory,
     hashProviderBCrypt,
   );
 

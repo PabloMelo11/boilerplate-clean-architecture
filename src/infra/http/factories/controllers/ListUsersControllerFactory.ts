@@ -7,8 +7,8 @@ import { ListUsersUseCase } from '@/usecases/listUsers/ListUsersUseCase';
 import { ListUsersController } from '@/adapters/presentation/controllers/ListUsersController';
 
 function makeListUsersControllerFactory(): Controller {
-  const usersRepository = new UsersRepositoryInMemory();
-  const listUsersUseCase = new ListUsersUseCase(usersRepository);
+  const usersRepositoryInMemory = new UsersRepositoryInMemory();
+  const listUsersUseCase = new ListUsersUseCase(usersRepositoryInMemory);
   const listUsersController = new ListUsersController(listUsersUseCase);
 
   return listUsersController;

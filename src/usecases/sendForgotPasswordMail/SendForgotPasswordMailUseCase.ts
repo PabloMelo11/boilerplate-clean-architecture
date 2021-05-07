@@ -1,6 +1,6 @@
 import { resolve } from 'path';
 
-import { left } from '@/shared/logic/Either';
+import { left, right } from '@/shared/logic/Either';
 
 import { UserTokens } from '@/entities/userTokens/userTokens';
 
@@ -85,6 +85,8 @@ class SendForgotPasswordMailUseCase implements ISendForgotPasswordMailUseCase {
         },
       },
     });
+
+    return right(true);
   }
 }
 

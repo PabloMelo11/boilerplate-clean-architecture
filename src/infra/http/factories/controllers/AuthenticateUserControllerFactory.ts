@@ -12,7 +12,7 @@ import { AuthenticateUserUseCase } from '@/usecases/authenticateUser/Authenticat
 import { AuthenticateUserController } from '@/adapters/presentation/controllers/AuthenticateUserController';
 
 function makeAuthenticateUserControllerFactory(): Controller {
-  const usersRepository = new UsersRepositoryInMemory();
+  const usersRepositoryInMemory = new UsersRepositoryInMemory();
   const usersTokensRepositoryInMemory = new UsersTokensRepositoryInMemory();
 
   const tokenProviderJsonWebToken = new TokenProviderJsonWebToken();
@@ -20,7 +20,7 @@ function makeAuthenticateUserControllerFactory(): Controller {
   const dateProviderDayjs = new DateProviderDayjs();
 
   const authenticateUserUseCase = new AuthenticateUserUseCase(
-    usersRepository,
+    usersRepositoryInMemory,
     usersTokensRepositoryInMemory,
     tokenProviderJsonWebToken,
     hashProviderBCrypt,

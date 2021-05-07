@@ -4,7 +4,7 @@ import {
   HttpResponse,
   clientError,
   serverError,
-  ok,
+  notContent,
 } from '@/adapters/presentation/protocols/HttpResponse';
 
 import { ISendForgotPasswordMailUseCase } from '@/usecases/sendForgotPasswordMail/ISendForgotPasswordMailUseCase';
@@ -27,7 +27,7 @@ class SendForgotPasswordMailController implements Controller {
         return clientError(result.value);
       }
 
-      return ok(result.value);
+      return notContent();
     } catch (err) {
       return serverError(err);
     }

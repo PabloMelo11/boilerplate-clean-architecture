@@ -7,8 +7,10 @@ import { ShowProfileUserUseCase } from '@/usecases/showProfileUser/ShowProfileUs
 import { ShowProfileUserController } from '@/adapters/presentation/controllers/ShowProfileUserController';
 
 function makeShowProfileUser(): Controller {
-  const usersRepository = new UsersRepositoryInMemory();
-  const showProfileUserUseCase = new ShowProfileUserUseCase(usersRepository);
+  const usersRepositoryInMemory = new UsersRepositoryInMemory();
+  const showProfileUserUseCase = new ShowProfileUserUseCase(
+    usersRepositoryInMemory,
+  );
 
   const showProfileUserController = new ShowProfileUserController(
     showProfileUserUseCase,
