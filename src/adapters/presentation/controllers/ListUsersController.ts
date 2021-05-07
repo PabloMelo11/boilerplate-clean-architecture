@@ -26,11 +26,11 @@ class ListUsersController implements Controller {
         return clientError(result.value);
       }
 
-      const users = result.value;
+      const all_users = result.value;
 
-      const usersView = UserViewModel.mapCollection(users);
+      const users_view_model = UserViewModel.mapCollection(all_users);
 
-      return ok(usersView);
+      return ok(users_view_model);
     } catch (err) {
       return serverError(err);
     }

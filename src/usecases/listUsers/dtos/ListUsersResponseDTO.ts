@@ -1,7 +1,7 @@
 import { Either } from '@/shared/logic/Either';
 
-import { User } from '@/entities/user/user';
+import { UserPropsDTO } from '@/entities/user/dtos/UserPropsDTO';
 
-type ListAllUsersResponseDTO = Either<Error, User[]>;
+type ListAllUsersResponseDTO = Either<Error, UserPropsDTO[]>;
 
 export { ListAllUsersResponseDTO };

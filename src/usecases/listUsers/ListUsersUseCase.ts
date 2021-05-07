@@ -12,11 +12,11 @@ class ListUsersUseCase implements IListUsersUseCase {
   async listUsers({
     except_current_user_id,
   }: ListUsersRequestDTO): Promise<ListAllUsersResponseDTO> {
-    const findUsers = await this.usersRepository.listAllUsers(
+    const all_users = await this.usersRepository.listAllUsers(
       except_current_user_id,
     );
 
-    return right(findUsers);
+    return right(all_users);
   }
 }
 

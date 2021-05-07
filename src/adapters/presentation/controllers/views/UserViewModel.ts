@@ -1,11 +1,11 @@
 import { User } from '@/entities/user/user';
 
 class UserViewModel {
-  id: string;
+  id?: string;
   name: string;
   email: string;
   driver_license: string;
-  avatar: string;
+  avatar?: string;
 
   static map(entity: User): UserViewModel {
     return {
