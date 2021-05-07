@@ -32,7 +32,9 @@ class UpdateAvatarUserController implements Controller {
         return clientError(result.value);
       }
 
-      return ok(UserViewModel.map(result.value));
+      const user_view_model = UserViewModel.map(result.value);
+
+      return ok(user_view_model);
     } catch (err) {
       return serverError(err);
     }

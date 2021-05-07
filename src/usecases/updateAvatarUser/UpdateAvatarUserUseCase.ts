@@ -39,11 +39,11 @@ class UpdateAvatarUserUseCase implements IUpdateAvatarUserUseCase {
       folder: 'avatar',
     });
 
-    user.props.avatar = avatar_file;
+    user.avatar = avatar_file;
 
-    await this.usersRepository.update(user);
+    const updated_user = await this.usersRepository.update(user);
 
-    return right(user);
+    return right(updated_user);
   }
 }
 
