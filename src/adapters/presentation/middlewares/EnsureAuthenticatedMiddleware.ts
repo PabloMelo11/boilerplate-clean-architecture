@@ -7,7 +7,7 @@ import {
 
 import { Middleware } from '@/adapters/presentation/protocols/Middleware';
 
-import { AccessDeniedError } from '@/infra/http/errors/AccessDeniedError';
+import { AccessDeniedError } from '@/adapters/presentation/errors/AccessDeniedError';
 
 import { DecodeTokenDTO } from '@/usecases/_helpers_/providers/dtos/DecodeTokenDTO';
 
