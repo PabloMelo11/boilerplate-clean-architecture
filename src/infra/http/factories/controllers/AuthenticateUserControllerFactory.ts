@@ -6,6 +6,7 @@ import { UsersTokensRepositoryInMemory } from '@/infra/repositories/inMemory/Use
 import { TokenProviderJsonWebToken } from '@/infra/providers/TokenProvider/jsonwebtoken/TokenProvider';
 import { HashProviderBCrypt } from '@/infra/providers/HashProvider/bcrypt/HashProvider';
 import { DateProviderDayjs } from '@/infra/providers/DateProvider/dayjs/DateProvider';
+import { UUIDProvider } from '@/infra/providers/UUIDProvider/uuid/UUIDProvider';
 
 import { AuthenticateUserUseCase } from '@/usecases/authenticateUser/AuthenticateUserUseCase';
 
@@ -18,6 +19,7 @@ function makeAuthenticateUserControllerFactory(): Controller {
   const tokenProviderJsonWebToken = new TokenProviderJsonWebToken();
   const hashProviderBCrypt = new HashProviderBCrypt();
   const dateProviderDayjs = new DateProviderDayjs();
+  const uuidProvider = new UUIDProvider();
 
   const authenticateUserUseCase = new AuthenticateUserUseCase(
     usersRepositoryInMemory,
@@ -25,6 +27,7 @@ function makeAuthenticateUserControllerFactory(): Controller {
     tokenProviderJsonWebToken,
     hashProviderBCrypt,
     dateProviderDayjs,
+    uuidProvider,
   );
 
   const authenticateUserController = new AuthenticateUserController(

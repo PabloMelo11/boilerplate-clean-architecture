@@ -14,6 +14,7 @@ import { IUsersTokensRepository } from '@/usecases/_helpers_/repositories/IUsers
 import { ITokenProvider } from '@/usecases/_helpers_/providers/ITokenProvider';
 import { IHashProvider } from '@/usecases/_helpers_/providers/IHashProvider';
 import { IDateProvider } from '@/usecases/_helpers_/providers/IDateProvider';
+import { IUUIDProvider } from '@/usecases/_helpers_/providers/IUUIDProvider';
 
 import { AuthenticateUserRequestDTO } from '@/usecases/authenticateUser/dtos/AuthenticateUserRequestDTO';
 
@@ -31,6 +32,7 @@ class AuthenticateUserUseCase implements IAuthenticateUserUseCase {
     private tokenProvider: ITokenProvider,
     private hashProvider: IHashProvider,
     private dateProvider: IDateProvider,
+    private uuidProvider: IUUIDProvider,
   ) {}
 
   async authenticate({
@@ -91,12 +93,16 @@ class AuthenticateUserUseCase implements IAuthenticateUserUseCase {
       expires_refresh_token_days,
     );
 
-    const userTokenOrError = UserTokens.create({
-      user_id: user.id,
-      token: refresh_token,
-      expires_date: refresh_token_expires_date,
-      type: 'refresh_token',
-    });
+    const id = this.uuidProvider.generateUUID();
+    const userTokenOrError = UserTokens.create(
+      {
+        user_id: user.id,
+        token: refresh_token,
+        expires_date: refresh_token_expires_date,
+        type: 'refresh_token',
+      },
+      id,
+    );
 
     if (userTokenOrError.isLeft()) {
       return left(userTokenOrError.value);
@@ -105,10 +111,11 @@ class AuthenticateUserUseCase implements IAuthenticateUserUseCase {
     const userToken: UserTokens = userTokenOrError.value;
 
     await this.usersTokensRepository.create({
-      ...userToken,
-      ...userToken.props,
+      id: userToken.id,
       type: userToken.type,
       expires_date: userToken.expires_date,
+      token: userToken.token,
+      user_id: userToken.user_id,
     });
 
     const returnToken: ResponseDTO = {
