@@ -1,5 +1,3 @@
-import { User } from '@/entities/user/user';
-
 class UserViewModel {
   id?: string;
   name: string;
@@ -7,11 +5,11 @@ class UserViewModel {
   driver_license: string;
   avatar?: string;
 
-  static map(entity: User): UserViewModel {
+  static map(entity: UserViewModel): UserViewModel {
     return {
       id: entity.id,
-      name: entity.name.value,
-      email: entity.email.value,
+      name: entity.name,
+      email: entity.email,
       driver_license: entity.driver_license,
       avatar: entity.avatar ?? null,
     };

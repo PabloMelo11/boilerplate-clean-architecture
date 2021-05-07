@@ -45,7 +45,7 @@ class CreateUserUseCase implements ICreateUserUseCase {
       user.password.value,
     );
 
-    await this.usersRepository.create({
+    const created_user = await this.usersRepository.create({
       id: user.id,
       name: user.name.value,
       email: user.email.value,
@@ -54,7 +54,7 @@ class CreateUserUseCase implements ICreateUserUseCase {
       avatar: user.avatar,
     });
 
-    return right(user);
+    return right(created_user);
   }
 }
 

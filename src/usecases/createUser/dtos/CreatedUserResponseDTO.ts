@@ -1,6 +1,6 @@
 import { Either } from '@/shared/logic/Either';
 
-import { User } from '@/entities/user/user';
+import { UserPropsDTO } from '@/entities/user/dtos/UserPropsDTO';
 
 import { InvalidEmailError } from '@/entities/user/errors/InvalidEmailError';
 import { InvalidPasswordLengthError } from '@/entities/user/errors/InvalidPasswordLength';
@@ -12,7 +12,7 @@ type CreatedUserResponseDTO = Either<
   | InvalidEmailError
   | InvalidPasswordLengthError
   | InvalidNameError,
-  User
+  UserPropsDTO
 >;
 
 export { CreatedUserResponseDTO };
