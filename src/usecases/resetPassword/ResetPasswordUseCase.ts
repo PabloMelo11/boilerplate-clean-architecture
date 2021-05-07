@@ -28,13 +28,11 @@ class ResetPasswordUseCase implements IResetPasswordUseCase {
 
   async resetPassword({
     password,
-    password_confirmation,
     token,
-  }: ResetPasswordRequestDTO): Promise<ResetPasswordResponseDTO> {
-    if (password !== password_confirmation) {
-      return left(new PasswordDoesNotMatch());
-    }
-
+  }: Omit<
+    ResetPasswordRequestDTO,
+    'password_confirmation'
+  >): Promise<ResetPasswordResponseDTO> {
     const passwordOrError = Password.create(password);
 
     if (passwordOrError.isLeft()) {
