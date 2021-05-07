@@ -7,18 +7,33 @@ import {
   notContent,
 } from '@/adapters/presentation/protocols/HttpResponse';
 
+import { Validation } from '@/adapters/presentation/protocols/Validation';
+
 import { ResetPasswordRequestDTO } from '@/usecases/resetPassword/dtos/ResetPasswordRequestDTO';
 
 import { IResetPasswordUseCase } from '@/usecases/resetPassword/IResetPasswordUseCase';
 
 class ResetPasswordController implements Controller {
-  constructor(private readonly resetPasswordUseCase: IResetPasswordUseCase) {}
+  constructor(
+    private readonly validation: Validation,
+    private readonly resetPasswordUseCase: IResetPasswordUseCase,
+  ) {}
   async handle({
     password,
     password_confirmation,
     token,
   }: ResetPasswordRequestDTO): Promise<HttpResponse> {
     try {
+      const error = this.validation.validate({
+        password,
+        password_confirmation,
+        token,
+      });
+
+      if (error) {
+        return clientError(error);
+      }
+
       const result = await this.resetPasswordUseCase.resetPassword({
         password,
         password_confirmation,
