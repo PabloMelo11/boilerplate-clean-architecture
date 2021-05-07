@@ -3,4 +3,4 @@ dist
 .env
 
 tmp/*
-!tmp/.gitkeep
+!tmp/avatar/.gitkeep
