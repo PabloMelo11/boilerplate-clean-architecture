@@ -1,4 +1,3 @@
-import { Entity } from '@/shared/domain/Entity';
 import { right, left } from '@/shared/logic/Either';
 
 import { UserPropsDTO } from '@/entities/user/dtos/UserPropsDTO';
@@ -8,32 +7,30 @@ import { Email } from './email';
 import { Password } from './password';
 import { Name } from './name';
 
-class User extends Entity<UserPropsDTO> {
-  get name(): string {
-    return this.props.name;
+type CreateUserPropsDTO = {
+  name: Name;
+  email: Email;
+  password: Password;
+  driver_license: string;
+
+  id?: string;
+  avatar?: string;
+};
+
+class User {
+  public readonly id: string;
+  public readonly name: Name;
+  public readonly email: Email;
+  public readonly password: Password;
+  public readonly driver_license: string;
+  public readonly avatar: string;
+
+  private constructor(props: CreateUserPropsDTO) {
+    Object.assign(this, props);
+    Object.freeze(this);
   }
 
-  get email(): string {
-    return this.props.email;
-  }
-
-  get password(): string {
-    return this.props.password;
-  }
-
-  get driver_license(): string {
-    return this.props.driver_license;
-  }
-
-  get avatar(): string {
-    return this.props.avatar;
-  }
-
-  private constructor(props: UserPropsDTO, id?: string) {
-    super(props, id);
-  }
-
-  static create(props: UserPropsDTO, id?: string): UserResponseDTO {
+  static create(props: UserPropsDTO): UserResponseDTO {
     const nameOrError = Name.create(props.name);
     const emailOrError = Email.create(props.email);
     const passwordOrError = Password.create(props.password);
@@ -54,14 +51,13 @@ class User extends Entity<UserPropsDTO> {
     const email: Email = emailOrError.value;
     const password: Password = passwordOrError.value;
 
-    const userProps = {
-      ...props,
-      name: name.value,
-      email: email.value,
-      password: password.value,
-    };
-
-    const user = new User(userProps, id);
+    const user = new User({
+      name,
+      email,
+      password,
+      driver_license: props.driver_license,
+      avatar: props.avatar,
+    });
 
     return right(user);
   }
