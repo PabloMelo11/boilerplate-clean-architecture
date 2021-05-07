@@ -1,5 +1,7 @@
 import { UsersTokensRepositoryInMemory } from '@/infra/repositories/inMemory/UsersTokensRepository';
 
+import { makeRefreshTokenValidationFactory } from '@/infra/http/factories/validations/RefreshTokenValidationFactory';
+
 import { TokenProviderJsonWebToken } from '@/infra/providers/TokenProvider/jsonwebtoken/TokenProvider';
 import { DateProviderDayjs } from '@/infra/providers/DateProvider/dayjs/DateProvider';
 import { UUIDProvider } from '@/infra/providers/UUIDProvider/uuid/UUIDProvider';
@@ -23,6 +25,7 @@ function makeRefreshTokenControllerFactory() {
   );
 
   const refreshTokenController = new RefreshTokenController(
+    makeRefreshTokenValidationFactory(),
     refreshTokenUseCase,
   );
 

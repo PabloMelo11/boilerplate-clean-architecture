@@ -7,17 +7,28 @@ import {
   ok,
 } from '@/adapters/presentation/protocols/HttpResponse';
 
+import { Validation } from '@/adapters/presentation/protocols/Validation';
+
 import { RefreshTokenRequestDTO } from '@/usecases/refreshToken/dtos/RefreshTokenRequestDTO';
 
 import { IRefreshTokenUseCase } from '@/usecases/refreshToken/IRefreshTokenUseCase';
 
 class RefreshTokenController implements Controller {
-  constructor(private readonly refreshTokenUseCase: IRefreshTokenUseCase) {}
+  constructor(
+    private readonly validation: Validation,
+    private readonly refreshTokenUseCase: IRefreshTokenUseCase,
+  ) {}
 
   async handle({
     refresh_token,
   }: RefreshTokenRequestDTO): Promise<HttpResponse> {
     try {
+      const error = this.validation.validate({ refresh_token });
+
+      if (error) {
+        return clientError(error);
+      }
+
       const result = await this.refreshTokenUseCase.createNewRefreshToken({
         refresh_token,
       });
