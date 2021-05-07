@@ -1,5 +1,8 @@
 import { left, right } from '@/shared/logic/Either';
 
+import { User } from '@/entities/user/user';
+import { Password } from '@/entities/user/password';
+
 import { IResetPasswordUseCase } from '@/usecases/resetPassword/IResetPasswordUseCase';
 
 import { IUsersRepository } from '@/usecases/_helpers_/repositories/IUsersRepository';
@@ -32,6 +35,14 @@ class ResetPasswordUseCase implements IResetPasswordUseCase {
       return left(new PasswordDoesNotMatch());
     }
 
+    const passwordOrError = Password.create(password);
+
+    if (passwordOrError.isLeft()) {
+      return left(passwordOrError.value);
+    }
+
+    const _password = passwordOrError.value;
+
     const user_token = await this.usersTokensRepository.findByToken(token);
 
     if (!user_token) {
@@ -60,11 +71,17 @@ class ResetPasswordUseCase implements IResetPasswordUseCase {
 
     const user = await this.usersRepository.findById(user_token.user_id);
 
-    const passwordHash = await this.hashProvider.generateHash(password);
+    const passwordHash = await this.hashProvider.generateHash(_password.value);
 
     user.props.password = passwordHash;
 
-    await this.usersRepository.update(user);
+    const dataUpdate = {
+      ...user,
+      ...user.props,
+      password: passwordHash,
+    } as User;
+
+    await this.usersRepository.update(dataUpdate);
 
     await this.usersTokensRepository.deleteById(user_token.id);
 
