@@ -38,6 +38,7 @@ class SendForgotPasswordMailUseCase implements ISendForgotPasswordMailUseCase {
 
     const id = this.uuidProvider.generateUUID();
     const token_forgot_password = this.uuidProvider.generateUUID();
+
     const expires_date = this.dateProvider.addHours(3);
 
     const userTokenOrError = UserTokens.create(

@@ -1,7 +1,7 @@
-import { SendForgotPasswordMailDTO } from '@/usecases/_helpers_/providers/dtos/SendForgotPasswordMailDTO';
+import { SendMailDTO } from '@/usecases/_helpers_/providers/dtos/SendMailDTO';
 
 interface IMailProvider {
-  sendMail(data: SendForgotPasswordMailDTO): Promise<void>;
+  sendMail(data: SendMailDTO): Promise<void>;
 }
 
 export { IMailProvider };
