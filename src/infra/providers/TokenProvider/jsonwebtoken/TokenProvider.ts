@@ -1,10 +1,10 @@
 import { sign, verify, decode } from 'jsonwebtoken';
 
-import { ITokenProvider } from '@/usecases/_helpers_/providers/ITokenProvider';
+import { ITokenProvider } from '@/domain/usecases/_helpers_/providers/ITokenProvider';
 
-import { GenerateTokenDTO } from '@/usecases/_helpers_/providers/dtos/GenerateTokenDTO';
-import { VerifyTokenDTO } from '@/usecases/_helpers_/providers/dtos/VerifyTokenDTO';
-import { DecodeTokenDTO } from '@/usecases/_helpers_/providers/dtos/DecodeTokenDTO';
+import { GenerateTokenDTO } from '@/domain/usecases/_helpers_/providers/dtos/GenerateTokenDTO';
+import { VerifyTokenDTO } from '@/domain/usecases/_helpers_/providers/dtos/VerifyTokenDTO';
+import { DecodeTokenDTO } from '@/domain/usecases/_helpers_/providers/dtos/DecodeTokenDTO';
 
 class TokenProviderJsonWebToken implements ITokenProvider {
   public generateToken({

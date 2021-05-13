@@ -6,7 +6,7 @@ import { TokenProviderJsonWebToken } from '@/infra/providers/TokenProvider/jsonw
 import { DateProviderDayjs } from '@/infra/providers/DateProvider/dayjs/DateProvider';
 import { UUIDProvider } from '@/infra/providers/UUIDProvider/uuid/UUIDProvider';
 
-import { RefreshTokenUseCase } from '@/usecases/refreshToken/RefreshTokenUseCase';
+import { RefreshTokenUseCase } from '@/domain/usecases/refreshToken/RefreshTokenUseCase';
 
 import { RefreshTokenController } from '@/adapters/presentation/controllers/RefreshTokenController';
 

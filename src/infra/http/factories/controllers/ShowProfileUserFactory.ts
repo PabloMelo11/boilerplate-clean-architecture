@@ -2,7 +2,7 @@ import { Controller } from '@/adapters/presentation/protocols/Controller';
 
 import { UsersRepositoryInMemory } from '@/infra/repositories/inMemory/UsersRepository';
 
-import { ShowProfileUserUseCase } from '@/usecases/showProfileUser/ShowProfileUserUseCase';
+import { ShowProfileUserUseCase } from '@/domain/usecases/showProfileUser/ShowProfileUserUseCase';
 
 import { ShowProfileUserController } from '@/adapters/presentation/controllers/ShowProfileUserController';
 

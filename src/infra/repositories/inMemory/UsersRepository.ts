@@ -1,8 +1,8 @@
-import { UserPropsDTO } from '@/entities/user/dtos/UserPropsDTO';
+import { UserPropsDTO } from '@/domain/entities/user/dtos/UserPropsDTO';
 
-import { IUsersRepository } from '@/usecases/_helpers_/repositories/IUsersRepository';
+import { IUsersRepository } from '@/domain/usecases/_helpers_/repositories/IUsersRepository';
 
-import { CreateUserRequestDTO } from '@/usecases/createUser/dtos/CreateUserRequestDTO';
+import { CreateUserRequestDTO } from '@/domain/usecases/createUser/dtos/CreateUserRequestDTO';
 
 class UsersRepositoryInMemory implements IUsersRepository {
   private static users: CreateUserRequestDTO[] = [];

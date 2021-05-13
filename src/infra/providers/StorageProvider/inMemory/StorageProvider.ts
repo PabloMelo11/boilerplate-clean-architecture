@@ -3,9 +3,9 @@ import { resolve } from 'path';
 
 import upload from '@/shared/config/upload';
 
-import { IStorageProvider } from '@/usecases/_helpers_/providers/IStorageProvider';
+import { IStorageProvider } from '@/domain/usecases/_helpers_/providers/IStorageProvider';
 
-import { SaveFileInStorageDTO } from '@/usecases/_helpers_/providers/dtos/SaveFileInStorageDTO';
+import { SaveFileInStorageDTO } from '@/domain/usecases/_helpers_/providers/dtos/SaveFileInStorageDTO';
 
 class StorageProviderInMemory implements IStorageProvider {
   async save({ file, folder }: SaveFileInStorageDTO): Promise<string> {

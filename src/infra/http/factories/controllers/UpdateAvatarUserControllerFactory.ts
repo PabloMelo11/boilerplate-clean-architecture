@@ -4,7 +4,7 @@ import { UsersRepositoryInMemory } from '@/infra/repositories/inMemory/UsersRepo
 
 import { StorageProviderInMemory } from '@/infra/providers/StorageProvider/inMemory/StorageProvider';
 
-import { UpdateAvatarUserUseCase } from '@/usecases/updateAvatarUser/UpdateAvatarUserUseCase';
+import { UpdateAvatarUserUseCase } from '@/domain/usecases/updateAvatarUser/UpdateAvatarUserUseCase';
 
 import { UpdateAvatarUserController } from '@/adapters/presentation/controllers/UpdateAvatarUserController';
 

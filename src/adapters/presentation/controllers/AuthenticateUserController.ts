@@ -9,8 +9,8 @@ import {
 
 import { Validation } from '@/adapters/presentation/protocols/Validation';
 
-import { IAuthenticateUserUseCase } from '@/usecases/authenticateUser/IAuthenticateUserUseCase';
-import { AuthenticateUserRequestDTO } from '@/usecases/authenticateUser/dtos/AuthenticateUserRequestDTO';
+import { IAuthenticateUserUseCase } from '@/domain/usecases/authenticateUser/IAuthenticateUserUseCase';
+import { AuthenticateUserRequestDTO } from '@/domain/usecases/authenticateUser/dtos/AuthenticateUserRequestDTO';
 
 class AuthenticateUserController implements Controller {
   constructor(

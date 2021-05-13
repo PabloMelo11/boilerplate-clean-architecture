@@ -6,7 +6,7 @@ import { UsersRepositoryInMemory } from '@/infra/repositories/inMemory/UsersRepo
 import { HashProviderBCrypt } from '@/infra/providers/HashProvider/bcrypt/HashProvider';
 import { UUIDProvider } from '@/infra/providers/UUIDProvider/uuid/UUIDProvider';
 
-import { CreateUserUseCase } from '@/usecases/createUser/CreateUserUseCase';
+import { CreateUserUseCase } from '@/domain/usecases/createUser/CreateUserUseCase';
 
 import { CreateUserController } from '@/adapters/presentation/controllers/CreateUserController';
 

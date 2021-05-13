@@ -9,9 +9,9 @@ import {
 
 import { Validation } from '@/adapters/presentation/protocols/Validation';
 
-import { RefreshTokenRequestDTO } from '@/usecases/refreshToken/dtos/RefreshTokenRequestDTO';
+import { RefreshTokenRequestDTO } from '@/domain/usecases/refreshToken/dtos/RefreshTokenRequestDTO';
 
-import { IRefreshTokenUseCase } from '@/usecases/refreshToken/IRefreshTokenUseCase';
+import { IRefreshTokenUseCase } from '@/domain/usecases/refreshToken/IRefreshTokenUseCase';
 
 class RefreshTokenController implements Controller {
   constructor(

@@ -9,9 +9,9 @@ import {
 
 import { UserViewModel } from '@/adapters/presentation/controllers/views/UserViewModel';
 
-import { UpdateAvatarUserRequestDTO } from '@/usecases/updateAvatarUser/dtos/UpdateAvatarUserRequestDTO';
+import { UpdateAvatarUserRequestDTO } from '@/domain/usecases/updateAvatarUser/dtos/UpdateAvatarUserRequestDTO';
 
-import { IUpdateAvatarUserUseCase } from '@/usecases/updateAvatarUser/IUpateAvatarUserUseCase';
+import { IUpdateAvatarUserUseCase } from '@/domain/usecases/updateAvatarUser/IUpateAvatarUserUseCase';
 
 class UpdateAvatarUserController implements Controller {
   constructor(

@@ -3,10 +3,10 @@ import nodemailer, { Transporter } from 'nodemailer';
 
 import mailConfig from '@/shared/config/mail';
 
-import { IMailProvider } from '@/usecases/_helpers_/providers/IMailProvider';
-import { IMailTemplateProvider } from '@/usecases/_helpers_/providers/IMailTemplateProvider';
+import { IMailProvider } from '@/domain/usecases/_helpers_/providers/IMailProvider';
+import { IMailTemplateProvider } from '@/domain/usecases/_helpers_/providers/IMailTemplateProvider';
 
-import { SendMailDTO } from '@/usecases/_helpers_/providers/dtos/SendMailDTO';
+import { SendMailDTO } from '@/domain/usecases/_helpers_/providers/dtos/SendMailDTO';
 
 class MailProviderSES implements IMailProvider {
   private client: Transporter;

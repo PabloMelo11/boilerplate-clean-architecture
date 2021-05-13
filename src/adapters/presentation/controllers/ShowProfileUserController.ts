@@ -9,9 +9,9 @@ import {
 
 import { UserViewModel } from '@/adapters/presentation/controllers/views/UserViewModel';
 
-import { ShowProfileUserRequestDTO } from '@/usecases/showProfileUser/dtos/ShowProfileUserRequestDTO';
+import { ShowProfileUserRequestDTO } from '@/domain/usecases/showProfileUser/dtos/ShowProfileUserRequestDTO';
 
-import { IShowProfileUserUseCase } from '@/usecases/showProfileUser/IShowProfileUserUseCase';
+import { IShowProfileUserUseCase } from '@/domain/usecases/showProfileUser/IShowProfileUserUseCase';
 
 class ShowProfileUserController implements Controller {
   constructor(

@@ -1,8 +1,8 @@
 import fs from 'fs';
 import handlebars from 'handlebars';
 
-import { IMailTemplateProvider } from '@/usecases/_helpers_/providers/IMailTemplateProvider';
-import { ParseTemplateDTO } from '@/usecases/_helpers_/providers/dtos/ParseTemplateDTO';
+import { IMailTemplateProvider } from '@/domain/usecases/_helpers_/providers/IMailTemplateProvider';
+import { ParseTemplateDTO } from '@/domain/usecases/_helpers_/providers/dtos/ParseTemplateDTO';
 
 class HandlebarsMailTemplateProvider implements IMailTemplateProvider {
   public async parse({ file, variables }: ParseTemplateDTO): Promise<string> {

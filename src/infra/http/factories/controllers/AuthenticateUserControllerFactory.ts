@@ -10,7 +10,7 @@ import { HashProviderBCrypt } from '@/infra/providers/HashProvider/bcrypt/HashPr
 import { DateProviderDayjs } from '@/infra/providers/DateProvider/dayjs/DateProvider';
 import { UUIDProvider } from '@/infra/providers/UUIDProvider/uuid/UUIDProvider';
 
-import { AuthenticateUserUseCase } from '@/usecases/authenticateUser/AuthenticateUserUseCase';
+import { AuthenticateUserUseCase } from '@/domain/usecases/authenticateUser/AuthenticateUserUseCase';
 
 import { AuthenticateUserController } from '@/adapters/presentation/controllers/AuthenticateUserController';
 

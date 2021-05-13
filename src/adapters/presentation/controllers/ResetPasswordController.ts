@@ -9,9 +9,9 @@ import {
 
 import { Validation } from '@/adapters/presentation/protocols/Validation';
 
-import { ResetPasswordRequestDTO } from '@/usecases/resetPassword/dtos/ResetPasswordRequestDTO';
+import { ResetPasswordRequestDTO } from '@/domain/usecases/resetPassword/dtos/ResetPasswordRequestDTO';
 
-import { IResetPasswordUseCase } from '@/usecases/resetPassword/IResetPasswordUseCase';
+import { IResetPasswordUseCase } from '@/domain/usecases/resetPassword/IResetPasswordUseCase';
 
 class ResetPasswordController implements Controller {
   constructor(

@@ -9,7 +9,7 @@ import { MailProviderSES } from '@/infra/providers/MailProvider/ses/MailProvider
 import { DateProviderDayjs } from '@/infra/providers/DateProvider/dayjs/DateProvider';
 import { UUIDProvider } from '@/infra/providers/UUIDProvider/uuid/UUIDProvider';
 
-import { SendForgotPasswordMailUseCase } from '@/usecases/sendForgotPasswordMail/SendForgotPasswordMailUseCase';
+import { SendForgotPasswordMailUseCase } from '@/domain/usecases/sendForgotPasswordMail/SendForgotPasswordMailUseCase';
 
 import { SendForgotPasswordMailController } from '@/adapters/presentation/controllers/SendForgotPasswordMailController';
 

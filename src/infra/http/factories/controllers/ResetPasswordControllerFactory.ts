@@ -6,7 +6,7 @@ import { UsersTokensRepositoryInMemory } from '@/infra/repositories/inMemory/Use
 import { DateProviderDayjs } from '@/infra/providers/DateProvider/dayjs/DateProvider';
 import { HashProviderBCrypt } from '@/infra/providers/HashProvider/bcrypt/HashProvider';
 
-import { ResetPasswordUseCase } from '@/usecases/resetPassword/ResetPasswordUseCase';
+import { ResetPasswordUseCase } from '@/domain/usecases/resetPassword/ResetPasswordUseCase';
 
 import { ResetPasswordController } from '@/adapters/presentation/controllers/ResetPasswordController';
 

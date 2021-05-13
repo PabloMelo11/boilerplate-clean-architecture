@@ -1,8 +1,8 @@
-import { UserTokens } from '@/entities/userTokens/userTokens';
+import { UserTokens } from '@/domain/entities/userTokens/userTokens';
 
-import { IUsersTokensRepository } from '@/usecases/_helpers_/repositories/IUsersTokensRepository';
+import { IUsersTokensRepository } from '@/domain/usecases/_helpers_/repositories/IUsersTokensRepository';
 
-import { FindTokenByUserAndRefreshTokenDTO } from '@/usecases/authenticateUser/dtos/FindTokenByUserAndRefreshTokenDTO';
+import { FindTokenByUserAndRefreshTokenDTO } from '@/domain/usecases/authenticateUser/dtos/FindTokenByUserAndRefreshTokenDTO';
 
 class UsersTokensRepositoryInMemory implements IUsersTokensRepository {
   private static usersTokens: UserTokens[] = [];

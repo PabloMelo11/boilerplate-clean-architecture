@@ -1,6 +1,6 @@
-import { IMailProvider } from '@/usecases/_helpers_/providers/IMailProvider';
+import { IMailProvider } from '@/domain/usecases/_helpers_/providers/IMailProvider';
 
-import { SendMailDTO } from '@/usecases/_helpers_/providers/dtos/SendMailDTO';
+import { SendMailDTO } from '@/domain/usecases/_helpers_/providers/dtos/SendMailDTO';
 
 class MailProviderInMemory implements IMailProvider {
   private mails: SendMailDTO[] = [];

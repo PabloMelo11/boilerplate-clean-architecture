@@ -11,9 +11,9 @@ import { Validation } from '@/adapters/presentation/protocols/Validation';
 
 import { UserViewModel } from '@/adapters/presentation/controllers/views/UserViewModel';
 
-import { CreateUserRequestDTO } from '@/usecases/createUser/dtos/CreateUserRequestDTO';
+import { CreateUserRequestDTO } from '@/domain/usecases/createUser/dtos/CreateUserRequestDTO';
 
-import { ICreateUserUseCase } from '@/usecases/createUser/ICreateUserUseCase';
+import { ICreateUserUseCase } from '@/domain/usecases/createUser/ICreateUserUseCase';
 
 class CreateUserController implements Controller {
   constructor(

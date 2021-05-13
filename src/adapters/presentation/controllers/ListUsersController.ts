@@ -11,9 +11,9 @@ import { Validation } from '@/adapters/presentation/protocols/Validation';
 
 import { UserViewModel } from '@/adapters/presentation/controllers/views/UserViewModel';
 
-import { ListUsersRequestDTO } from '@/usecases/listUsers/dtos/ListUsersRequestDTO';
+import { ListUsersRequestDTO } from '@/domain/usecases/listUsers/dtos/ListUsersRequestDTO';
 
-import { IListUsersUseCase } from '@/usecases/listUsers/IListUsersUseCase';
+import { IListUsersUseCase } from '@/domain/usecases/listUsers/IListUsersUseCase';
 
 class ListUsersController implements Controller {
   constructor(

@@ -9,8 +9,8 @@ import {
 
 import { Validation } from '@/adapters/presentation/protocols/Validation';
 
-import { ISendForgotPasswordMailUseCase } from '@/usecases/sendForgotPasswordMail/ISendForgotPasswordMailUseCase';
-import { SendForgotPasswordMailRequestDTO } from '@/usecases/sendForgotPasswordMail/dtos/SendForgotPasswordMailRequestDTO';
+import { ISendForgotPasswordMailUseCase } from '@/domain/usecases/sendForgotPasswordMail/ISendForgotPasswordMailUseCase';
+import { SendForgotPasswordMailRequestDTO } from '@/domain/usecases/sendForgotPasswordMail/dtos/SendForgotPasswordMailRequestDTO';
 
 class SendForgotPasswordMailController implements Controller {
   constructor(

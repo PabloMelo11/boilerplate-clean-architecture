@@ -9,10 +9,10 @@ import { Middleware } from '@/adapters/presentation/protocols/Middleware';
 
 import { AccessDeniedError } from '@/adapters/presentation/errors/AccessDeniedError';
 
-import { DecodeTokenDTO } from '@/usecases/_helpers_/providers/dtos/DecodeTokenDTO';
+import { DecodeTokenDTO } from '@/domain/usecases/_helpers_/providers/dtos/DecodeTokenDTO';
 
-import { ITokenProvider } from '@/usecases/_helpers_/providers/ITokenProvider';
-import { IUsersTokensRepository } from '@/usecases/_helpers_/repositories/IUsersTokensRepository';
+import { ITokenProvider } from '@/domain/usecases/_helpers_/providers/ITokenProvider';
+import { IUsersTokensRepository } from '@/domain/usecases/_helpers_/repositories/IUsersTokensRepository';
 
 type EnsureAuthenticateRequestDTO = {
   accessToken: string;
