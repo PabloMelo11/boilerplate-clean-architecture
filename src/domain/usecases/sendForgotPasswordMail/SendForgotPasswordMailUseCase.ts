@@ -80,7 +80,7 @@ class SendForgotPasswordMailUseCase implements ISendForgotPasswordMailUseCase {
         name: user.name,
         email: user.email,
       },
-      subject: '[Rentx] Recuperação de senha',
+      subject: '[Boilerplate] Recuperação de senha',
       templateData: {
         file: templatePath,
         variables: {
