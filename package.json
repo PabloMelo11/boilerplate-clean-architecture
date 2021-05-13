@@ -7,7 +7,8 @@
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files",
     "dev:server": "tsnd --respawn --transpile-only --ignore-watch node_modules --exit-child --clear -r tsconfig-paths/register src/infra/http/server.ts",
     "prod:server": "node dist/infra/http/server.js",
-    "lint": "eslint src --ext ts,tsx"
+    "lint": "eslint src --ext ts,tsx",
+    "test": "jest --runInBand --detectOpenHandles"
   },
   "husky": {
     "hooks": {
@@ -55,6 +56,7 @@
     "lint-staged": "^10.2.11",
     "multer": "^1.4.2",
     "prettier": "^2.2.1",
+    "ts-jest": "^26.5.6",
     "ts-node-dev": "^1.1.6",
     "typescript": "^4.2.4"
   },
