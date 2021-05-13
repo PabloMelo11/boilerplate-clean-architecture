@@ -1,5 +1,9 @@
+import { Email } from '@/domain/entities/user/email';
+
 describe('test', () => {
-  it('sum numbers', () => {
-    expect(1 + 1).toBe(2);
+  it('should accept valid email address', () => {
+    const emailOrError = Email.create('johndoe@example.com');
+
+    expect(emailOrError.isRight()).toBeTruthy();
   });
 });
