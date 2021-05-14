@@ -25,4 +25,10 @@ describe('User email value object', () => {
 
     expect(emailOrError.isLeft()).toBeTruthy();
   });
+
+  it('should reject emails when not send parameter', () => {
+    const emailOrError = Email.create(null);
+
+    expect(emailOrError.isLeft()).toBeTruthy();
+  });
 });
