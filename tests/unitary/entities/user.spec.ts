@@ -18,4 +18,37 @@ describe('User entity', () => {
 
     expect(userOrError.isRight()).toBeTruthy();
   });
+
+  it('should not be able to create a new user when send name incorrect', () => {
+    const userOrError = User.create({
+      name: 'p',
+      email: email.value,
+      password: password.value,
+      driver_license: 'ABC-123',
+    });
+
+    expect(userOrError.isLeft()).toBeTruthy();
+  });
+
+  it('should not be able to create a new user when send email incorrect', () => {
+    const userOrError = User.create({
+      name: name.value,
+      email: 'johndoe@.com',
+      password: password.value,
+      driver_license: 'ABC-123',
+    });
+
+    expect(userOrError.isLeft()).toBeTruthy();
+  });
+
+  it('should not be able to create a new user when send password incorrect', () => {
+    const userOrError = User.create({
+      name: name.value,
+      email: email.value,
+      password: '12',
+      driver_license: 'ABC-123',
+    });
+
+    expect(userOrError.isLeft()).toBeTruthy();
+  });
 });
