@@ -1,6 +1,6 @@
 import { left, right } from '@/shared/logic/Either';
 
-import { Password } from '@/domain/entities/valuesObject/password';
+import { Password } from '@/domain/entities/_common_/valuesObject/password';
 
 import { IResetPasswordUseCase } from '@/domain/usecases/resetPassword/IResetPasswordUseCase';
 

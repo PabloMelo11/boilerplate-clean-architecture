@@ -1,6 +1,6 @@
 import { Either, left, right } from '@/shared/logic/Either';
 
-import { InvalidPasswordLengthError } from '../user/errors/InvalidPasswordLength';
+import { InvalidPasswordLengthError } from '@/domain/entities/_common_/errors/InvalidPasswordLength';
 
 class Password {
   private readonly password: string;

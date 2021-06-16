@@ -1,6 +1,6 @@
 import { Either, left, right } from '@/shared/logic/Either';
 
-import { InvalidNameError } from '@/domain/entities/user/errors/InvalidNameError';
+import { InvalidNameError } from '@/domain/entities/_common_/errors/InvalidNameError';
 
 export class Name {
   private readonly name: string;

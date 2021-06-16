@@ -1,6 +1,6 @@
-import { Email } from '@/domain/entities/valuesObject/email';
-import { Name } from '@/domain/entities/valuesObject/name';
-import { Password } from '@/domain/entities/valuesObject/password';
+import { Email } from '@/domain/entities/_common_/valuesObject/email';
+import { Name } from '@/domain/entities/_common_/valuesObject/name';
+import { Password } from '@/domain/entities/_common_/valuesObject/password';
 import { User } from '@/domain/entities/user/user';
 
 const name = Name.create('John Doe').value as Name;

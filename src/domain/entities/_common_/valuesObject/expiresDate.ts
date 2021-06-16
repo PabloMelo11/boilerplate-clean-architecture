@@ -1,6 +1,6 @@
 import { Either, left, right } from '@/shared/logic/Either';
 
-import { InvalidDateError } from '@/domain/entities/userTokens/errors/InvalidDateError';
+import { InvalidDateError } from '@/domain/entities/_common_/errors/InvalidDateError';
 
 class ExpiresDate {
   private readonly expires_date: Date;

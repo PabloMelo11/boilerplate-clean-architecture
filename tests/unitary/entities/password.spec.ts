@@ -1,4 +1,4 @@
-import { Password } from '@/domain/entities/valuesObject/password';
+import { Password } from '@/domain/entities/_common_/valuesObject/password';
 
 describe('User password value object', () => {
   it('should accept valid password', () => {

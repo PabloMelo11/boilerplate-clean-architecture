@@ -1,6 +1,6 @@
 import { Either, left, right } from '@/shared/logic/Either';
 
-import { InvalidTypeError } from '@/domain/entities/userTokens/errors/InvalidTypeError';
+import { InvalidTypeError } from '@/domain/entities/_common_/errors/InvalidTypeError';
 
 class Type {
   private readonly type: string;
