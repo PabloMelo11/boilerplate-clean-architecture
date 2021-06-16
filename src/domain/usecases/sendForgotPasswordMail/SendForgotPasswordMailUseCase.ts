@@ -6,17 +6,17 @@ import { UserTokens } from '@/domain/entities/userTokens/userTokens';
 
 import { ISendForgotPasswordMailUseCase } from '@/domain/usecases/sendForgotPasswordMail/ISendForgotPasswordMailUseCase';
 
-import { IUsersRepository } from '@/domain/usecases/_helpers_/repositories/IUsersRepository';
-import { IUsersTokensRepository } from '@/domain/usecases/_helpers_/repositories/IUsersTokensRepository';
+import { IUsersRepository } from '@/domain/usecases/_common_/repositories/IUsersRepository';
+import { IUsersTokensRepository } from '@/domain/usecases/_common_/repositories/IUsersTokensRepository';
 
-import { IMailProvider } from '@/domain/usecases/_helpers_/providers/IMailProvider';
-import { IDateProvider } from '@/domain/usecases/_helpers_/providers/IDateProvider';
-import { IUUIDProvider } from '@/domain/usecases/_helpers_/providers/IUUIDProvider';
+import { IMailProvider } from '@/domain/usecases/_common_/providers/IMailProvider';
+import { IDateProvider } from '@/domain/usecases/_common_/providers/IDateProvider';
+import { IUUIDProvider } from '@/domain/usecases/_common_/providers/IUUIDProvider';
 
 import { SendForgotPasswordMailRequestDTO } from '@/domain/usecases/sendForgotPasswordMail/dtos/SendForgotPasswordMailRequestDTO';
 import { SendForgotPasswordMailResponseDTO } from '@/domain/usecases/sendForgotPasswordMail/dtos/SendForgotPasswordMailResponseDTO';
 
-import { AccountDoesNotExists } from '@/domain/usecases/_helpers_/errors/AccountDoesNotExists';
+import { AccountDoesNotExists } from '@/domain/usecases/_common_/errors/AccountDoesNotExists';
 
 class SendForgotPasswordMailUseCase implements ISendForgotPasswordMailUseCase {
   constructor(

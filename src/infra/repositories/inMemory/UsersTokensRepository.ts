@@ -1,6 +1,6 @@
 import { UserTokens } from '@/domain/entities/userTokens/userTokens';
 
-import { IUsersTokensRepository } from '@/domain/usecases/_helpers_/repositories/IUsersTokensRepository';
+import { IUsersTokensRepository } from '@/domain/usecases/_common_/repositories/IUsersTokensRepository';
 
 import { FindTokenByUserAndRefreshTokenDTO } from '@/domain/usecases/authenticateUser/dtos/FindTokenByUserAndRefreshTokenDTO';
 

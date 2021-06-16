@@ -8,13 +8,13 @@ import { Password } from '@/domain/entities/valuesObject/password';
 
 import { IAuthenticateUserUseCase } from '@/domain/usecases/authenticateUser/IAuthenticateUserUseCase';
 
-import { IUsersRepository } from '@/domain/usecases/_helpers_/repositories/IUsersRepository';
-import { IUsersTokensRepository } from '@/domain/usecases/_helpers_/repositories/IUsersTokensRepository';
+import { IUsersRepository } from '@/domain/usecases/_common_/repositories/IUsersRepository';
+import { IUsersTokensRepository } from '@/domain/usecases/_common_/repositories/IUsersTokensRepository';
 
-import { ITokenProvider } from '@/domain/usecases/_helpers_/providers/ITokenProvider';
-import { IHashProvider } from '@/domain/usecases/_helpers_/providers/IHashProvider';
-import { IDateProvider } from '@/domain/usecases/_helpers_/providers/IDateProvider';
-import { IUUIDProvider } from '@/domain/usecases/_helpers_/providers/IUUIDProvider';
+import { ITokenProvider } from '@/domain/usecases/_common_/providers/ITokenProvider';
+import { IHashProvider } from '@/domain/usecases/_common_/providers/IHashProvider';
+import { IDateProvider } from '@/domain/usecases/_common_/providers/IDateProvider';
+import { IUUIDProvider } from '@/domain/usecases/_common_/providers/IUUIDProvider';
 
 import { AuthenticateUserRequestDTO } from '@/domain/usecases/authenticateUser/dtos/AuthenticateUserRequestDTO';
 
@@ -23,7 +23,7 @@ import {
   ResponseDTO,
 } from '@/domain/usecases/authenticateUser/dtos/AuthenticateUserResponseDTO';
 
-import { InvalidEmailOrPassword } from '@/domain/usecases/_helpers_/errors/InvalidEmailOrPassword';
+import { InvalidEmailOrPassword } from '@/domain/usecases/_common_/errors/InvalidEmailOrPassword';
 
 class AuthenticateUserUseCase implements IAuthenticateUserUseCase {
   constructor(

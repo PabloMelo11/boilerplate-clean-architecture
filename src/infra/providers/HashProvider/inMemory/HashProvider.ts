@@ -1,4 +1,4 @@
-import { IHashProvider } from '@/domain/usecases/_helpers_/providers/IHashProvider';
+import { IHashProvider } from '@/domain/usecases/_common_/providers/IHashProvider';
 
 class HashProviderInMemory implements IHashProvider {
   public async generateHash(payload: string): Promise<string> {

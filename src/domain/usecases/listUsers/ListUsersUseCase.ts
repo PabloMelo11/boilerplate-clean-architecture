@@ -1,6 +1,6 @@
 import { right } from '@/shared/logic/Either';
 
-import { IUsersRepository } from '@/domain/usecases/_helpers_/repositories/IUsersRepository';
+import { IUsersRepository } from '@/domain/usecases/_common_/repositories/IUsersRepository';
 import { IListUsersUseCase } from '@/domain/usecases/listUsers/IListUsersUseCase';
 
 import { ListAllUsersResponseDTO } from '@/domain/usecases/listUsers/dtos/ListUsersResponseDTO';

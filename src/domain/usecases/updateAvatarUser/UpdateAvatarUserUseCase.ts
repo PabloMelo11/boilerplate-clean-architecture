@@ -2,14 +2,14 @@ import { left, right } from '@/shared/logic/Either';
 
 import { IUpdateAvatarUserUseCase } from '@/domain/usecases/updateAvatarUser/IUpateAvatarUserUseCase';
 
-import { IUsersRepository } from '@/domain/usecases/_helpers_/repositories/IUsersRepository';
+import { IUsersRepository } from '@/domain/usecases/_common_/repositories/IUsersRepository';
 
-import { IStorageProvider } from '@/domain/usecases/_helpers_/providers/IStorageProvider';
+import { IStorageProvider } from '@/domain/usecases/_common_/providers/IStorageProvider';
 
 import { UpdateAvatarUserRequestDTO } from '@/domain/usecases/updateAvatarUser/dtos/UpdateAvatarUserRequestDTO';
 import { UpdateAvatarUserResponseDTO } from '@/domain/usecases/updateAvatarUser/dtos/UpdateAvatarUserResponseDTO';
 
-import { AccountDoesNotExists } from '@/domain/usecases/_helpers_/errors/AccountDoesNotExists';
+import { AccountDoesNotExists } from '@/domain/usecases/_common_/errors/AccountDoesNotExists';
 
 class UpdateAvatarUserUseCase implements IUpdateAvatarUserUseCase {
   constructor(

@@ -6,11 +6,11 @@ import { UserTokens } from '@/domain/entities/userTokens/userTokens';
 
 import { IRefreshTokenUseCase } from './IRefreshTokenUseCase';
 
-import { IUsersTokensRepository } from '@/domain/usecases/_helpers_/repositories/IUsersTokensRepository';
+import { IUsersTokensRepository } from '@/domain/usecases/_common_/repositories/IUsersTokensRepository';
 
-import { ITokenProvider } from '@/domain/usecases/_helpers_/providers/ITokenProvider';
-import { IDateProvider } from '@/domain/usecases/_helpers_/providers/IDateProvider';
-import { IUUIDProvider } from '@/domain/usecases/_helpers_/providers/IUUIDProvider';
+import { ITokenProvider } from '@/domain/usecases/_common_/providers/ITokenProvider';
+import { IDateProvider } from '@/domain/usecases/_common_/providers/IDateProvider';
+import { IUUIDProvider } from '@/domain/usecases/_common_/providers/IUUIDProvider';
 
 import {
   RefreshTokenResponseDTO,
@@ -20,7 +20,7 @@ import {
 import { PayloadVerifyTokenDTO } from '@/domain/usecases/refreshToken/dtos/PayloadVerifyTokenDTO';
 import { RefreshTokenRequestDTO } from '@/domain/usecases/refreshToken/dtos/RefreshTokenRequestDTO';
 
-import { RefreshTokenDoesNotExists } from '@/domain/usecases/_helpers_/errors/RefreshTokenDoesNotExists';
+import { RefreshTokenDoesNotExists } from '@/domain/usecases/_common_/errors/RefreshTokenDoesNotExists';
 
 class RefreshTokenUseCase implements IRefreshTokenUseCase {
   constructor(

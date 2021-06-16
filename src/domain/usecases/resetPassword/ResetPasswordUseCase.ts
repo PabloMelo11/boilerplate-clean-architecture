@@ -4,18 +4,18 @@ import { Password } from '@/domain/entities/valuesObject/password';
 
 import { IResetPasswordUseCase } from '@/domain/usecases/resetPassword/IResetPasswordUseCase';
 
-import { IUsersRepository } from '@/domain/usecases/_helpers_/repositories/IUsersRepository';
-import { IUsersTokensRepository } from '@/domain/usecases/_helpers_/repositories/IUsersTokensRepository';
+import { IUsersRepository } from '@/domain/usecases/_common_/repositories/IUsersRepository';
+import { IUsersTokensRepository } from '@/domain/usecases/_common_/repositories/IUsersTokensRepository';
 
-import { IDateProvider } from '@/domain/usecases/_helpers_/providers/IDateProvider';
-import { IHashProvider } from '@/domain/usecases/_helpers_/providers/IHashProvider';
+import { IDateProvider } from '@/domain/usecases/_common_/providers/IDateProvider';
+import { IHashProvider } from '@/domain/usecases/_common_/providers/IHashProvider';
 
 import { ResetPasswordRequestDTO } from '@/domain/usecases/resetPassword/dtos/ResetPasswordRequestDTO';
 import { ResetPasswordResponseDTO } from '@/domain/usecases/resetPassword/dtos/ResetPasswordResponseDTO';
 
-import { TokenDoesNotExists } from '@/domain/usecases/_helpers_/errors/TokenDoesNotExists';
-import { TokenExpired } from '@/domain/usecases/_helpers_/errors/TokenExpired';
-import { PasswordDoesNotMatch } from '@/domain/usecases/_helpers_/errors/PasswordDoesNotMatch';
+import { TokenDoesNotExists } from '@/domain/usecases/_common_/errors/TokenDoesNotExists';
+import { TokenExpired } from '@/domain/usecases/_common_/errors/TokenExpired';
+import { PasswordDoesNotMatch } from '@/domain/usecases/_common_/errors/PasswordDoesNotMatch';
 
 class ResetPasswordUseCase implements IResetPasswordUseCase {
   constructor(

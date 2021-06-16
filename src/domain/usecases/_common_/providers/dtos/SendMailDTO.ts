@@ -1,4 +1,4 @@
-import { ParseTemplateDTO } from '@/domain/usecases/_helpers_/providers/dtos/ParseTemplateDTO';
+import { ParseTemplateDTO } from '@/domain/usecases/_common_/providers/dtos/ParseTemplateDTO';
 
 type MailContactDTO = {
   name: string;

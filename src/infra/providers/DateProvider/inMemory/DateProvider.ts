@@ -1,6 +1,6 @@
-import { IDateProvider } from '@/domain/usecases/_helpers_/providers/IDateProvider';
+import { IDateProvider } from '@/domain/usecases/_common_/providers/IDateProvider';
 
-import { CompareDateDTO } from '@/domain/usecases/_helpers_/providers/dtos/CompareDateDTO';
+import { CompareDateDTO } from '@/domain/usecases/_common_/providers/dtos/CompareDateDTO';
 
 class DateProviderInMemory implements IDateProvider {
   convertToUTC(date: Date): string {

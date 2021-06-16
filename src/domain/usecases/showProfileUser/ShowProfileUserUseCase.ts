@@ -2,12 +2,12 @@ import { left, right } from '@/shared/logic/Either';
 
 import { IShowProfileUserUseCase } from '@/domain/usecases/showProfileUser/IShowProfileUserUseCase';
 
-import { IUsersRepository } from '@/domain/usecases/_helpers_/repositories/IUsersRepository';
+import { IUsersRepository } from '@/domain/usecases/_common_/repositories/IUsersRepository';
 
 import { ShowProfileUserResponseDTO } from '@/domain/usecases/showProfileUser/dtos/ShowProfileUserResponseDTO';
 import { ShowProfileUserRequestDTO } from '@/domain/usecases/showProfileUser/dtos/ShowProfileUserRequestDTO';
 
-import { AccountDoesNotExists } from '@/domain/usecases/_helpers_/errors/AccountDoesNotExists';
+import { AccountDoesNotExists } from '@/domain/usecases/_common_/errors/AccountDoesNotExists';
 
 class ShowProfileUserUseCase implements IShowProfileUserUseCase {
   constructor(private usersRepository: IUsersRepository) {}

@@ -4,15 +4,15 @@ import { User } from '@/domain/entities/user/user';
 
 import { ICreateUserUseCase } from '@/domain/usecases/createUser/ICreateUserUseCase';
 
-import { IUsersRepository } from '@/domain/usecases/_helpers_/repositories/IUsersRepository';
+import { IUsersRepository } from '@/domain/usecases/_common_/repositories/IUsersRepository';
 
-import { IHashProvider } from '@/domain/usecases/_helpers_/providers/IHashProvider';
-import { IUUIDProvider } from '@/domain/usecases/_helpers_/providers/IUUIDProvider';
+import { IHashProvider } from '@/domain/usecases/_common_/providers/IHashProvider';
+import { IUUIDProvider } from '@/domain/usecases/_common_/providers/IUUIDProvider';
 
 import { CreatedUserResponseDTO } from '@/domain/usecases/createUser/dtos/CreatedUserResponseDTO';
 import { CreateUserRequestDTO } from '@/domain/usecases/createUser/dtos/CreateUserRequestDTO';
 
-import { AccountAlreadyExistsError } from '@/domain/usecases/_helpers_/errors/AccountAlreadyExists';
+import { AccountAlreadyExistsError } from '@/domain/usecases/_common_/errors/AccountAlreadyExists';
 
 class CreateUserUseCase implements ICreateUserUseCase {
   constructor(

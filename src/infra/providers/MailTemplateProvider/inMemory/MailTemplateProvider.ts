@@ -1,4 +1,4 @@
-import { IMailTemplateProvider } from '@/domain/usecases/_helpers_/providers/IMailTemplateProvider';
+import { IMailTemplateProvider } from '@/domain/usecases/_common_/providers/IMailTemplateProvider';
 
 class FakeMailTemplateProvider implements IMailTemplateProvider {
   public async parse(): Promise<string> {

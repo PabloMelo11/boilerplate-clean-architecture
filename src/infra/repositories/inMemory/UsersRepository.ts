@@ -1,6 +1,6 @@
 import { UserPropsDTO } from '@/domain/entities/user/dtos/UserPropsDTO';
 
-import { IUsersRepository } from '@/domain/usecases/_helpers_/repositories/IUsersRepository';
+import { IUsersRepository } from '@/domain/usecases/_common_/repositories/IUsersRepository';
 
 import { CreateUserRequestDTO } from '@/domain/usecases/createUser/dtos/CreateUserRequestDTO';
 

@@ -1,4 +1,4 @@
-import { SendMailDTO } from '@/domain/usecases/_helpers_/providers/dtos/SendMailDTO';
+import { SendMailDTO } from '@/domain/usecases/_common_/providers/dtos/SendMailDTO';
 
 interface IMailProvider {
   sendMail(data: SendMailDTO): Promise<void>;

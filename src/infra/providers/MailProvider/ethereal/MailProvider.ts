@@ -1,9 +1,9 @@
 import nodemailer, { Transporter } from 'nodemailer';
 
-import { IMailProvider } from '@/domain/usecases/_helpers_/providers/IMailProvider';
-import { IMailTemplateProvider } from '@/domain/usecases/_helpers_/providers/IMailTemplateProvider';
+import { IMailProvider } from '@/domain/usecases/_common_/providers/IMailProvider';
+import { IMailTemplateProvider } from '@/domain/usecases/_common_/providers/IMailTemplateProvider';
 
-import { SendMailDTO } from '@/domain/usecases/_helpers_/providers/dtos/SendMailDTO';
+import { SendMailDTO } from '@/domain/usecases/_common_/providers/dtos/SendMailDTO';
 
 class MailProviderEthereal implements IMailProvider {
   private client: Transporter;

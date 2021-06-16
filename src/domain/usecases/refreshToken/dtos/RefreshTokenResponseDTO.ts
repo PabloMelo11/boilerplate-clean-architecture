@@ -1,6 +1,6 @@
 import { Either } from '@/shared/logic/Either';
 
-import { RefreshTokenDoesNotExists } from '@/domain/usecases/_helpers_/errors/RefreshTokenDoesNotExists';
+import { RefreshTokenDoesNotExists } from '@/domain/usecases/_common_/errors/RefreshTokenDoesNotExists';
 
 type ResponseDTO = {
   token: string;
