@@ -20,8 +20,8 @@ describe('User Tokens type value objects', () => {
   });
 
   it('should reject type when not send parameter', () => {
-    const emailOrError = Type.create(null);
+    const typeOrError = Type.create(null);
 
-    expect(emailOrError.isLeft()).toBeTruthy();
+    expect(typeOrError.isLeft()).toBeTruthy();
   });
 });

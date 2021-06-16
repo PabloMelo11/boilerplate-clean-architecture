@@ -16,6 +16,9 @@ class ExpiresDate {
   static validate(expires_date: Date): boolean {
     const previousDate = expires_date < new Date();
 
+    console.log(expires_date);
+    console.log(new Date());
+
     if (!expires_date || previousDate) {
       return false;
     }
