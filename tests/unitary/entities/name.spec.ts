@@ -1,4 +1,4 @@
-import { Name } from '@/domain/entities/user/name';
+import { Name } from '@/domain/entities/valuesObject/name';
 
 describe('User name value object', () => {
   it('should accept valid name', () => {

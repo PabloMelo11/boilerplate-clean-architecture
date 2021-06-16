@@ -3,8 +3,8 @@ import { right, left } from '@/shared/logic/Either';
 import { UserTokenPropsDTO } from '@/domain/entities/userTokens/dtos/UserTokenPropsDTO';
 import { UserTokenResponseDTO } from '@/domain/entities/userTokens/dtos/UserTokenResponseDTO';
 
-import { Type } from '@/domain/entities/userTokens/type';
-import { ExpiresDate } from '@/domain/entities/userTokens/expiresDate';
+import { Type } from '@/domain/entities/valuesObject/type';
+import { ExpiresDate } from '@/domain/entities/valuesObject/expiresDate';
 
 class UserTokens {
   public readonly id: string;

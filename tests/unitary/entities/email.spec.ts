@@ -1,4 +1,4 @@
-import { Email } from '@/domain/entities/user/email';
+import { Email } from '@/domain/entities/valuesObject/email';
 
 describe('User email value object', () => {
   it('should accept valid email address', () => {

@@ -3,9 +3,9 @@ import { right, left } from '@/shared/logic/Either';
 import { UserPropsDTO } from '@/domain/entities/user/dtos/UserPropsDTO';
 import { UserResponseDTO } from '@/domain/entities/user/dtos/UserResponseDTO';
 
-import { Email } from './email';
-import { Password } from './password';
-import { Name } from './name';
+import { Email } from '@/domain/entities/valuesObject/email';
+import { Password } from '@/domain/entities/valuesObject/password';
+import { Name } from '@/domain/entities/valuesObject/name';
 
 class User {
   public readonly id: string;

@@ -3,8 +3,8 @@ import { left, right } from '@/shared/logic/Either';
 import auth from '@/shared/config/auth';
 
 import { UserTokens } from '@/domain/entities/userTokens/userTokens';
-import { Email } from '@/domain/entities/user/email';
-import { Password } from '@/domain/entities/user/password';
+import { Email } from '@/domain/entities/valuesObject/email';
+import { Password } from '@/domain/entities/valuesObject/password';
 
 import { IAuthenticateUserUseCase } from '@/domain/usecases/authenticateUser/IAuthenticateUserUseCase';
 
