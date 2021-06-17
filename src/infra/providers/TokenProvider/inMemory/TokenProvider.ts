@@ -5,7 +5,7 @@ import { VerifyTokenDTO } from '@/domain/usecases/_common_/providers/dtos/Verify
 import { DecodeTokenDTO } from '@/domain/usecases/_common_/providers/dtos/DecodeTokenDTO';
 
 interface IPayload {
-  token: string | object;
+  payload: string | object;
 }
 
 class TokenProviderInMemory implements ITokenProvider {
@@ -21,7 +21,7 @@ class TokenProviderInMemory implements ITokenProvider {
     const token = `${subject}.${secret}.${expiresIn}`;
 
     if (payload) {
-      this.payloads.push({ token: payload });
+      this.payloads.push({ payload: payload });
     }
 
     this.tokens.push(token);
@@ -32,16 +32,29 @@ class TokenProviderInMemory implements ITokenProvider {
   public verifyToken({ token }: VerifyTokenDTO): string | object {
     const [subject] = token.split('.');
 
+    let keyPayload = null;
+    let valuePayload = null;
+
+    const data: any = {};
+
     if (this.payloads) {
-      const payload = this.payloads.find(payload => {
-        for (const key in this.payloads) {
-          if (key === token) {
-            return Object.values(payload)[0];
-          }
+      this.payloads.forEach(payload => {
+        let payloadValuesArray = null;
+        let payloadKeysArray = null;
+
+        for (const key in payload) {
+          payloadKeysArray = Object.keys(payload[key]);
+          payloadValuesArray = Object.values(payload[key]);
         }
+
+        keyPayload = payloadKeysArray[0];
+        valuePayload = payloadValuesArray[0];
       });
 
-      return { payload, subject };
+      data[keyPayload] = valuePayload;
+      data.sub = subject;
+
+      return data;
     }
 
     return subject;

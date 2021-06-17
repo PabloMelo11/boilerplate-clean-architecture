@@ -1,17 +1,16 @@
-import { UserTokens } from '@/domain/entities/userTokens/userTokens';
-
+import { UserTokenPropsDTO } from '@/domain/entities/userTokens/dtos/UserTokenPropsDTO';
 import { FindTokenByUserAndRefreshTokenDTO } from '@/domain/usecases/authenticateUser/dtos/FindTokenByUserAndRefreshTokenDTO';
 
 interface IUsersTokensRepository {
-  create(data: UserTokens): Promise<UserTokens>;
+  create(data: UserTokenPropsDTO): Promise<UserTokenPropsDTO>;
 
   findByUserIdAndRefreshToken(
     data: FindTokenByUserAndRefreshTokenDTO,
-  ): Promise<UserTokens>;
+  ): Promise<UserTokenPropsDTO>;
 
   deleteById(token_id: string): Promise<void>;
 
-  findByToken(token: string): Promise<UserTokens>;
+  findByToken(token: string): Promise<UserTokenPropsDTO>;
 }
 
 export { IUsersTokensRepository };

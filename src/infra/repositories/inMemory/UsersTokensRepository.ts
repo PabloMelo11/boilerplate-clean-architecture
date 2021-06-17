@@ -1,13 +1,12 @@
-import { UserTokens } from '@/domain/entities/userTokens/userTokens';
-
 import { IUsersTokensRepository } from '@/domain/usecases/_common_/repositories/IUsersTokensRepository';
 
+import { UserTokenPropsDTO } from '@/domain/entities/userTokens/dtos/UserTokenPropsDTO';
 import { FindTokenByUserAndRefreshTokenDTO } from '@/domain/usecases/authenticateUser/dtos/FindTokenByUserAndRefreshTokenDTO';
 
 class UsersTokensRepositoryInMemory implements IUsersTokensRepository {
-  private static usersTokens: UserTokens[] = [];
+  private static usersTokens: UserTokenPropsDTO[] = [];
 
-  public async create(data: UserTokens): Promise<UserTokens> {
+  public async create(data: UserTokenPropsDTO): Promise<UserTokenPropsDTO> {
     UsersTokensRepositoryInMemory.usersTokens.push(data);
 
     return data;
@@ -16,7 +15,7 @@ class UsersTokensRepositoryInMemory implements IUsersTokensRepository {
   public async findByUserIdAndRefreshToken({
     refresh_token,
     user_id,
-  }: FindTokenByUserAndRefreshTokenDTO): Promise<UserTokens> {
+  }: FindTokenByUserAndRefreshTokenDTO): Promise<UserTokenPropsDTO> {
     const userToken = UsersTokensRepositoryInMemory.usersTokens.find(
       userToken =>
         userToken.user_id === user_id && userToken.token === refresh_token,
@@ -33,7 +32,7 @@ class UsersTokensRepositoryInMemory implements IUsersTokensRepository {
     UsersTokensRepositoryInMemory.usersTokens.splice(userTokenIndex, 1);
   }
 
-  public async findByToken(token: string): Promise<UserTokens> {
+  public async findByToken(token: string): Promise<UserTokenPropsDTO> {
     const userToken = UsersTokensRepositoryInMemory.usersTokens.find(
       userToken => userToken.token === token,
     );
