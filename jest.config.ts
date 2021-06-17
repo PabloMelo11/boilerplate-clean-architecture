@@ -2,7 +2,10 @@ export default {
   bail: true,
   clearMocks: true,
   collectCoverage: true,
-  collectCoverageFrom: ['<rootDir>/src/domain/entities/**/*.ts'],
+  collectCoverageFrom: [
+    '<rootDir>/src/domain/usecases/**/*.ts',
+    '!<rootDir>/src/domain/usecases/_common_/**/*.ts',
+  ],
   coverageDirectory: 'coverage',
   coverageProvider: 'v8',
   coverageReporters: ['text-summary', 'lcov'],
