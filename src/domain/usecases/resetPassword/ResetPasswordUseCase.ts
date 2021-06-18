@@ -15,7 +15,6 @@ import { ResetPasswordResponseDTO } from '@/domain/usecases/resetPassword/dtos/R
 
 import { TokenDoesNotExists } from '@/domain/usecases/_common_/errors/TokenDoesNotExists';
 import { TokenExpired } from '@/domain/usecases/_common_/errors/TokenExpired';
-import { PasswordDoesNotMatch } from '@/domain/usecases/_common_/errors/PasswordDoesNotMatch';
 
 class ResetPasswordUseCase implements IResetPasswordUseCase {
   constructor(
@@ -50,7 +49,7 @@ class ResetPasswordUseCase implements IResetPasswordUseCase {
 
     const compare_day = this.dateProvider.compareInDays({
       start_date: date_now,
-      end_date: user_token.expires_date.value,
+      end_date: user_token.expires_date,
     });
 
     if (compare_day >= 1) {
@@ -59,7 +58,7 @@ class ResetPasswordUseCase implements IResetPasswordUseCase {
 
     const compare_hour = this.dateProvider.compareInHours({
       start_date: date_now,
-      end_date: user_token.expires_date.value,
+      end_date: user_token.expires_date,
     });
 
     if (compare_hour > 3) {
