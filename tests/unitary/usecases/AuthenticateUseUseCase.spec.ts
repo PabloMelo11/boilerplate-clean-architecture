@@ -67,14 +67,16 @@ describe('Authenticate user use case', () => {
 
     expect(user_authenticate.isRight()).toBeTruthy();
 
-    expect(user_authenticate.value).toHaveProperty('token');
-    expect(user_authenticate.value).toHaveProperty('user');
-    expect(user_authenticate.value).toHaveProperty('refresh_token');
-
-    expect(user_authenticate.value.user).toMatchObject({
-      name: user.name,
-      email: user.email,
-    });
+    expect(user_authenticate.value).toEqual(
+      expect.objectContaining({
+        token: expect.any(String),
+        user: {
+          name: 'John Doe',
+          email: 'johndoe@example.com',
+        },
+        refresh_token: expect.any(String),
+      }),
+    );
   });
 
   it('should not be able to authenticate user when send email incorrect', async () => {

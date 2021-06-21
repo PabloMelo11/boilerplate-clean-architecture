@@ -3,8 +3,10 @@ export default {
   clearMocks: true,
   collectCoverage: true,
   collectCoverageFrom: [
-    '<rootDir>/src/domain/usecases/**/*.ts',
-    '!<rootDir>/src/domain/usecases/_common_/**/*.ts',
+    '<rootDir>/src/**/domain/**/usecases/**/*.ts',
+    '<rootDir>/src/**/adapters/**/presentation/**/controllers/**/*.ts',
+    '!<rootDir>/src/**/domain/**/usecases/**/_common_/**/*.ts',
+    '!<rootDir>/src/**/adapters/**/presentation/**/controllers/**/views/**/*.ts',
   ],
   coverageDirectory: 'coverage',
   coverageProvider: 'v8',
