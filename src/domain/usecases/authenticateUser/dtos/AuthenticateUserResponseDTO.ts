@@ -1,7 +1,7 @@
 import { Either } from '@/shared/logic/Either';
 
-import { InvalidDateError } from '@/domain/entities/userTokens/errors/InvalidDateError';
-import { InvalidTypeError } from '@/domain/entities/userTokens/errors/InvalidTypeError';
+import { InvalidDateError } from '@/domain/entities/_common_/errors/InvalidDateError';
+import { InvalidTypeError } from '@/domain/entities/_common_/errors/InvalidTypeError';
 import { InvalidEmailOrPassword } from '@/domain/usecases/_common_/errors/InvalidEmailOrPassword';
 
 type ResponseDTO = {
