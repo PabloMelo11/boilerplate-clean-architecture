@@ -3,6 +3,8 @@ dist
 .env
 coverage
 
-tmp/*
+tmp/avatar/*
 !tmp/avatar/.gitkeep
+!tmp/avatar/placeholder.png
+
 tasks.md
