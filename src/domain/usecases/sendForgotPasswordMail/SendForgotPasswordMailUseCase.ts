@@ -59,8 +59,8 @@ class SendForgotPasswordMailUseCase implements ISendForgotPasswordMailUseCase {
 
     await this.usersTokensRepository.create({
       id: userToken.id,
-      type: userToken.type,
-      expires_date: userToken.expires_date,
+      type: userToken.type.value,
+      expires_date: userToken.expires_date.value,
       token: userToken.token,
       user_id: userToken.user_id,
     });
