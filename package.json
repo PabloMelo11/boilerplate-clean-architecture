@@ -8,7 +8,7 @@
     "dev:server": "tsnd --respawn --transpile-only --ignore-watch node_modules --exit-child --clear -r tsconfig-paths/register src/infra/http/server.ts",
     "prod:server": "node dist/infra/http/server.js",
     "lint": "eslint src --ext ts,tsx",
-    "test": "jest --runInBand --detectOpenHandles"
+    "test": "MAIL_DRIVER=inMemory jest --runInBand --detectOpenHandles"
   },
   "husky": {
     "hooks": {

@@ -1,4 +1,4 @@
-import { resolve } from 'path';
+import { join } from 'path';
 
 import { left, right } from '@/shared/logic/Either';
 
@@ -65,10 +65,9 @@ class SendForgotPasswordMailUseCase implements ISendForgotPasswordMailUseCase {
       user_id: userToken.user_id,
     });
 
-    const templatePath = resolve(
-      __dirname,
-      '..',
-      '..',
+    const templatePath = join(
+      process.cwd(),
+      'src',
       'shared',
       'resources',
       'views',

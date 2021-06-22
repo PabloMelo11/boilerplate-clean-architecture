@@ -6,6 +6,7 @@ import { UsersTokensRepositoryInMemory } from '@/infra/repositories/inMemory/Use
 import { HandlebarsMailTemplateProvider } from '@/infra/providers/MailTemplateProvider/handlebars/MailTemplateProvider';
 import { MailProviderEthereal } from '@/infra/providers/MailProvider/ethereal/MailProvider';
 import { MailProviderSES } from '@/infra/providers/MailProvider/ses/MailProvider';
+import { MailProviderInMemory } from '@/infra/providers/MailProvider/inMemory/MailProvider';
 import { DateProviderDayjs } from '@/infra/providers/DateProvider/dayjs/DateProvider';
 import { UUIDProvider } from '@/infra/providers/UUIDProvider/uuid/UUIDProvider';
 
@@ -25,12 +26,15 @@ function makeSendForgotPasswordControllerFactory() {
     handlebarsMailTemplateProvider,
   );
 
+  const mailProviderInMemory = new MailProviderInMemory();
+
   const dateProviderDayjs = new DateProviderDayjs();
   const uuidProvider = new UUIDProvider();
 
   const diskStorage = {
     ethereal: mailProviderEthereal,
     ses: mailProviderSES,
+    inMemory: mailProviderInMemory,
   };
 
   const sendForgotPasswordMailUseCase = new SendForgotPasswordMailUseCase(
